@@ -4,10 +4,15 @@ on:
     - cron: '*/15 * * * *'
   workflow_dispatch:
 
+permissions:
+    contents: read
+
 jobs:
   updater:
     name: Update latest D++
     runs-on: ubuntu-20.04
+    permissions:
+        contents: write
     strategy:
       fail-fast: false # Don't fail everything if one fails. We want to test each OS/Compiler individually
 
