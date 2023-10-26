@@ -8,7 +8,7 @@ echo "Fetching latest DPP"
 git clone --depth 1 https://github.com/brainboxdotcc/DPP
 
 echo "Copying includes over to up-most directory"
-cp -rv include/ ../
+cp -rv include ..
 
 echo "Cleaning up..."
 cd .. || exit
