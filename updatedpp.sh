@@ -8,7 +8,7 @@ echo "Fetching latest DPP"
 git clone --depth 1 https://github.com/brainboxdotcc/DPP
 
 echo "Copying includes over to up-most directory"
-cp -rv include ..
+mv -r include ..
 
 echo "Cleaning up..."
 cd .. || exit
@@ -17,6 +17,6 @@ rm -rf temp
 echo "Committing..."
 git checkout main
 git pull
-git add -A include
-git commit -m "auto update includes to latest DPP"
+git add include
+git commit -m "auto update include to latest DPP"
 git push
