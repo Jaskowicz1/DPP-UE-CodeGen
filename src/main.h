@@ -6,6 +6,25 @@
 namespace Main
 {
 
+enum scope_type {
+	/**
+	 * @brief Currently not reading anything.
+	 */
+	st_none,
+	/**
+	 * @brief Currently reading a struct.
+	 */
+	st_struct,
+	/**
+	 * @brief Currently reading an enum.
+	 */
+	st_enum,
+	/**
+	 * @brief Currently reading a class.
+	 */
+	st_class
+};
+
 const std::string file_path_prefix{"../include/dpp/"};
 
 /**

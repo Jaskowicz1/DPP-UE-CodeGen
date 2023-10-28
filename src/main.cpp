@@ -31,7 +31,7 @@ int main() {
 		}
 
 		/* This is just temp, I want to only do webhook as a test. */
-		if (file_name != "channel.h") {
+		if (file_name != "webhook.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
 		}
@@ -58,27 +58,35 @@ int main() {
 
 		std::vector<std::string> file_lines = {};
 
-		bool in_scope = false;
+		file_lines = Main::new_file_start_lines;
+
+		Main::scope_type current_scope = Main::scope_type::st_none;
+
+		/**
+		 * @brief Should we add the current line to file_lines?
+		 * @warning This is ONLY for classes, to make sure we don't read protected data.
+		 */
+		bool should_add_to_lines = false;
+
+		uint16_t current_line = 0;
 
 		while (std::getline(file, line)) {
-
-			/* If the line is a comment, ignore it. */
-			if(line.rfind('/', 0) == 0 || line.rfind(" *", 0) == 0 || line.rfind('*', 0) == 0) {
-				continue;
-			}
 
 			std::string temp_line = line;
 			temp_line.erase(std::remove_if(temp_line.begin(), temp_line.end(), isspace), temp_line.end());
 			temp_line.erase(std::remove(temp_line.begin(), temp_line.end(), '\t'), temp_line.end());
 
-			const std::string& temp_line_with_spacing = line;
+			/* If the line is a comment, ignore it. */
+			if(temp_line.rfind('/', 0) == 0 || temp_line.rfind(" *", 0) == 0 || temp_line.rfind('*', 0) == 0) {
+				continue;
+			}
 
-			if(!in_scope) {
-				if (temp_line.rfind("enum", 0) != std::string::npos) {
-					in_scope = true;
+			if(current_scope == Main::scope_type::st_none) {
+				if (line.rfind("enum", 0) != std::string::npos) {
+					current_scope = Main::scope_type::st_enum;
 
-					std::string enum_name = temp_line_with_spacing;
-					enum_name.erase(0,5);
+					std::string enum_name = line;
+					enum_name.erase(0,5); // Removes "enum "
 					enum_name = Main::tokenize(enum_name, " ")[0];
 
 					file_lines.emplace_back("UENUM(BlueprintType)");
@@ -86,7 +94,7 @@ int main() {
 					/* Does the enum declare what type of enum it is?
 					 * If not, we force it to uint8.
 					 */
-					if (temp_line.find(':') == std::string::npos) {
+					if (line.find(':') == std::string::npos) {
 						file_lines.emplace_back("enum class " + enum_name + " : uint8 {");
 					} else {
 						std::string enum_type = Main::tokenize(temp_line, ":")[1];
@@ -102,17 +110,57 @@ int main() {
 							file_lines.emplace_back("enum class " + enum_name + " : uint8 {");
 						}
 					}
+				} else if (line.rfind("class DPP_EXPORT", 0) != std::string::npos) {
+					std::cout << "FOUND CLASS." << "\n";
+					current_scope = Main::scope_type::st_class;
+
+					std::string struct_name = line;
+					struct_name.erase(0,17); // Removes "class DPP_EXPORT "
+					struct_name = Main::tokenize(struct_name, " ")[0];
+
+					file_lines.emplace_back("USTRUCT(BlueprintType)");
+
+					file_lines.emplace_back("struct " + struct_name + " {");
+					file_lines.emplace_back("	GENERATED_BODY()");
+					file_lines.emplace_back("");
 				}
 			} else {
 				if (line.find('}') != std::string::npos) {
 					file_lines.emplace_back("};");
 					file_lines.emplace_back(""); // Just a blank line, cause separation after each scope.
-					in_scope = false;
+					current_scope = Main::scope_type::st_none;
 					continue;
 				}
 
-				file_lines.emplace_back(temp_line_with_spacing);
+				if(current_scope == Main::scope_type::st_class) {
+					if(line.rfind("public:", 0) != std::string::npos) {
+						should_add_to_lines = true;
+					} else if(line.rfind("protected:", 0) != std::string::npos) {
+						should_add_to_lines = false;
+					} else if(line.rfind("private:", 0) != std::string::npos) {
+						should_add_to_lines = false;
+					} else {
+						if(should_add_to_lines) {
+
+							if(temp_line.find('(') != std::string::npos) {
+								continue;
+							}
+
+							if(!temp_line.empty()) {
+								file_lines.emplace_back("	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord\")");
+							}
+
+							// Line needs to have words replaced (like std::string to FString)
+							file_lines.emplace_back(line);
+						}
+					}
+				} else if(current_scope == Main::scope_type::st_enum) {
+					/* Enums are fine to just take every line. */
+					file_lines.emplace_back(line);
+				}
 			}
+
+			current_line++;
 		}
 
 		file.close();

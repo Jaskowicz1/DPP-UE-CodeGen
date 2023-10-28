@@ -1,3 +1,5 @@
+#pragma once
+ 
 UENUM(BlueprintType)
 enum class channel_type : uint8 {
 	CHANNEL_TEXT		= 0,	//!< a text channel within a server
