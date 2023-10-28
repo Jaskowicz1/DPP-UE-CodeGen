@@ -1,0 +1,17 @@
+# IDEs
+.vs/
+.idea/
+.vscode/
+
+# CMake stuff
+out/
+build/
+cmake-build-debug/
+cmake-build-debug-visual-studio/
+vcpkg.json
+CMakeSettings.json
+
+# Executables
+*.exe
+*.out
+*.app
