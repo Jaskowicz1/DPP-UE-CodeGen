@@ -20,7 +20,7 @@ allowing me to understand what exactly needed to be different. From here, it sho
 Clone the project and then run `cmake -B build`. Then run `cmake --build build`. Once that's done, do `cd build`, you should see `CodeGen`.
 You can now do `./CodeGen` to run the program.
 
-The program expects to be ran the build directory, if it is not, then it will simply abort.
+The program expects to be executed inside the build directory. If it is not, then it will simply abort.
 
 DPP-UE-CodeGen will seek to regenerate all the code, which could take a bit. This is just the easiest way to do this, otherwise more problems get introduced
 if the program needs to start checking if something already exists,  if the data isn't valid anymore, etc.
