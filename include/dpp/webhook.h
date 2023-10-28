@@ -69,7 +69,7 @@ public:
 	/**
 	 * @brief Type of the webhook from dpp::webhook_type.
 	 */
-	uint8_t type;
+	uint8_t type = 0;
 
 	/**
 	 * @brief The guild id this webhook is for.

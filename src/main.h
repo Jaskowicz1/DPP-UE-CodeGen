@@ -55,4 +55,24 @@ std::vector<std::string> files_to_ignore = { "cache.h",
 					     "wsclient.h"
 					     };
 
+const std::vector<std::string> new_file_start_lines =
+	{
+		"#pragma once",
+		" "
+	};
+
+/* Copied from D++ */
+inline std::vector<std::string> tokenize(std::string const &in, const char* sep) {
+	std::string::size_type b = 0;
+	std::vector<std::string> result;
+
+	while ((b = in.find_first_not_of(sep, b)) != std::string::npos) {
+		auto e = in.find(sep, b);
+		result.push_back(in.substr(b, e-b));
+		b = e;
+	}
+	return result;
+}
+
 };
+
