@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <algorithm>
 #include <fstream>
+#include <regex>
 
 namespace fs = std::filesystem;
 
@@ -31,7 +32,7 @@ int main() {
 		}
 
 		/* This is just temp, I want to only do webhook as a test. */
-		if (file_name != "webhook.h") {
+		if (file_name != "channel.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
 		}
@@ -61,6 +62,8 @@ int main() {
 		file_lines = Main::new_file_start_lines;
 
 		Main::scope_type current_scope = Main::scope_type::st_none;
+
+		std::string scope_name = "";
 
 		/**
 		 * @brief Should we add the current line to file_lines?
@@ -95,23 +98,15 @@ int main() {
 					 * If not, we force it to uint8.
 					 */
 					if (line.find(':') == std::string::npos) {
-						file_lines.emplace_back("enum class " + enum_name + " : uint8 {");
+						file_lines.emplace_back("enum " + enum_name + " : uint8 {");
 					} else {
 						std::string enum_type = Main::tokenize(temp_line, ":")[1];
 						enum_type.erase(std::remove(enum_type.begin(), enum_type.end(), '{'), enum_type.end());
+						enum_type = std::regex_replace(enum_type, std::regex("_t"), "");
 
-						if(enum_type == "uint16_t") {
-							file_lines.emplace_back("enum class " + enum_name + " : uint16 {");
-						} else if(enum_type == "uint32_t") {
-							file_lines.emplace_back("enum class " + enum_name + " : uint32 {");
-						} else if(enum_type == "uint64_t") {
-							file_lines.emplace_back("enum class " + enum_name + " : uint64 {");
-						} else { // This is either uint8_t or something that we aren't checking.
-							file_lines.emplace_back("enum class " + enum_name + " : uint8 {");
-						}
+						file_lines.emplace_back("enum " + enum_name + " : " + enum_type + " {");
 					}
 				} else if (line.rfind("class DPP_EXPORT", 0) != std::string::npos) {
-					std::cout << "FOUND CLASS." << "\n";
 					current_scope = Main::scope_type::st_class;
 
 					std::string struct_name = line;
@@ -123,12 +118,15 @@ int main() {
 					file_lines.emplace_back("struct " + struct_name + " {");
 					file_lines.emplace_back("	GENERATED_BODY()");
 					file_lines.emplace_back("");
+
+					scope_name = struct_name;
 				}
 			} else {
 				if (line.find('}') != std::string::npos) {
 					file_lines.emplace_back("};");
 					file_lines.emplace_back(""); // Just a blank line, cause separation after each scope.
 					current_scope = Main::scope_type::st_none;
+					scope_name = "";
 					continue;
 				}
 
@@ -142,16 +140,16 @@ int main() {
 					} else {
 						if(should_add_to_lines) {
 
-							if(temp_line.find('(') != std::string::npos) {
+							if(temp_line.find('(') != std::string::npos || temp_line.rfind("using", 0) != std::string::npos) {
 								continue;
 							}
 
 							if(!temp_line.empty()) {
-								file_lines.emplace_back("	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord\")");
+								file_lines.emplace_back("	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + scope_name + "\")");
+								// Line needs to have words replaced (like std::string to FString)
+								file_lines.emplace_back(line);
+								file_lines.emplace_back("");
 							}
-
-							// Line needs to have words replaced (like std::string to FString)
-							file_lines.emplace_back(line);
 						}
 					}
 				} else if(current_scope == Main::scope_type::st_enum) {
@@ -169,8 +167,12 @@ int main() {
 
 		std::ofstream new_file("../gencode/" + file_name);
 
-		for(const auto& line : file_lines) {
-			new_file << line << "\n";
+		for(std::string& temp_line : file_lines) {
+			for(const auto& keyword : Main::keywords_to_replace) {
+				temp_line = std::regex_replace(temp_line, std::regex(keyword.first), keyword.second);
+			}
+
+			new_file << temp_line << "\n";
 		}
 
 		new_file.close();

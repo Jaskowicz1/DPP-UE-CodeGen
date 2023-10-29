@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <string>
+#include <map>
 
 namespace Main
 {
@@ -78,6 +79,24 @@ const std::vector<std::string> new_file_start_lines =
 	{
 		"#pragma once",
 		" "
+	};
+
+const std::map<std::string, std::string> keywords_to_replace =
+	{
+		{ "uint8_t", "int" }, // uints REALLY need a custom datatype that I can expose to blueprints. The inability to use uint for BPs is super limiting.
+  		{ "uint16_t", "int" },
+  		{ "uint32_t", "int64" },
+  		{ "uint64_t", "int64" },
+
+  		{ "std::string", "FString" },
+  		{ "std::vector", "TArray" },
+  		{ "std::variant", "TVariant" },
+  		{ "std::monostate, ", "" },
+
+  		{ "utility::iconhash", "FString" }, // THIS IS TEMP. A MANUAL INSERTION OF ICONHASH IS REQUIRED.
+  		{ "snowflake", "FString" }, // THIS IS TEMP. A MANUAL INSERTION OF SNOWFLAKE IS REQUIRED.
+
+  		{ "time_t", "FDateTime" },
 	};
 
 /* Copied from D++ */

@@ -12,7 +12,7 @@ struct webhook {
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord")
-	uint8_t type = 0;
+	uint8_t type;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord")
 	snowflake guild_id;
@@ -46,9 +46,6 @@ struct webhook {
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord")
 	std::string image_data;
-
-
-
 
 };
 
