@@ -90,13 +90,18 @@ const std::map<std::string, std::string> keywords_to_replace =
 
   		{ "std::string", "FString" },
   		{ "std::vector", "TArray" },
+  		{ "std::map", "TMap" },
+  		{ "std::unordered_map", "TMap" },
   		{ "std::variant", "TVariant" },
   		{ "std::monostate, ", "" },
 
   		{ "utility::iconhash", "FString" }, // THIS IS TEMP. A MANUAL INSERTION OF ICONHASH IS REQUIRED.
+  		{ "dpp::snowflake", "FString" }, // THIS IS TEMP. A MANUAL INSERTION OF SNOWFLAKE IS REQUIRED.
   		{ "snowflake", "FString" }, // THIS IS TEMP. A MANUAL INSERTION OF SNOWFLAKE IS REQUIRED.
 
   		{ "time_t", "FDateTime" },
+
+		{ "dpp::", "" },
 	};
 
 /* Copied from D++ */

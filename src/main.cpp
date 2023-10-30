@@ -14,6 +14,12 @@ int main() {
 		return ECANCELED;
 	}
 
+	std::cout << "Clearing any generated files." << "\n";
+
+	for (const auto& file_data : fs::directory_iterator("../gencode/")) {
+		std::remove(std::string("../gencode/" + file_data.path().filename().string()).c_str());
+	}
+
 	for (const auto& file_data : fs::directory_iterator(Main::file_path_prefix)) {
 
 		const std::string& file_name = file_data.path().filename().string();
@@ -35,7 +41,8 @@ int main() {
 		/* if (file_name != "channel.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
-		}*/
+		}
+		*/
 
 		std::cout << "Generating code from: " << file_name << "\n";
 
@@ -73,14 +80,46 @@ int main() {
 
 		uint16_t current_line = 0;
 
+		bool in_coro_func = false;
+
 		while (std::getline(file, line)) {
 
 			std::string temp_line = line;
 			temp_line.erase(std::remove_if(temp_line.begin(), temp_line.end(), isspace), temp_line.end());
 			temp_line.erase(std::remove(temp_line.begin(), temp_line.end(), '\t'), temp_line.end());
 
-			/* If the line is a comment, ignore it. */
-			if(temp_line.rfind('/', 0) == 0 || temp_line.rfind(" *", 0) == 0 || temp_line.rfind('*', 0) == 0) {
+			/* Is this a macro? */
+			if(temp_line.rfind('#', 0) == 0) {
+				if(temp_line.find("CORO") != std::string::npos) {
+					in_coro_func = true;
+					continue;
+				}
+
+				if(temp_line.find("#endif") != std::string::npos && in_coro_func) {
+					in_coro_func = false;
+					continue;
+				}
+
+				if(temp_line.find("#include") != std::string::npos) {
+					continue;
+				} else if(temp_line.find("#pragma") != std::string::npos) {
+					continue;
+				}
+
+				file_lines.emplace_back(line);
+
+			}
+
+			/* DO NOT LET CORO CODE BE EXPORTED */
+			if(in_coro_func) {
+				continue;
+			}
+
+			/* If the line starts as a comment (no space before), then put the line and continue loop instantly. */
+			if(line.rfind('/', 0) == 0 || line.rfind(" *", 0) == 0 || line.rfind('*', 0) == 0) {
+				file_lines.emplace_back(line);
+				continue;
+			} else if(temp_line.rfind('/', 0) == 0 || temp_line.rfind('*', 0) == 0) { /* However, if this is an indented comment, then ignore it. */
 				continue;
 			}
 
@@ -120,22 +159,43 @@ int main() {
 					file_lines.emplace_back("");
 
 					scope_name = struct_name;
+				} else if (line.rfind("struct DPP_EXPORT", 0) != std::string::npos) {
+					current_scope = Main::scope_type::st_struct;
+
+					std::string struct_name = line;
+					struct_name.erase(0,18); // Removes "struct DPP_EXPORT "
+					struct_name = Main::tokenize(struct_name, " ")[0];
+
+					file_lines.emplace_back("USTRUCT(BlueprintType)");
+
+					file_lines.emplace_back("struct " + struct_name + " {");
+					file_lines.emplace_back("	GENERATED_BODY()");
+					file_lines.emplace_back("");
+
+					scope_name = struct_name;
+				} else if (line.rfind("typedef", 0) != std::string::npos) {
+					std::string typedef_name = line;
+					typedef_name = Main::tokenize(typedef_name, "> ")[1];
+
+					file_lines.emplace_back("UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + typedef_name + "\")");
+					file_lines.emplace_back(line);
+					file_lines.emplace_back("");
 				}
 			} else {
-				if (line.find('}') != std::string::npos) {
+				if (line.rfind("};", 0) == 0) {
 					file_lines.emplace_back("};");
 					file_lines.emplace_back(""); // Just a blank line, cause separation after each scope.
 					current_scope = Main::scope_type::st_none;
 					scope_name = "";
 					continue;
+				} else if (temp_line.rfind('}', 0) == 0 && line.find(';') == std::string::npos) { /* Make sure this isn't the end of a func */
+					continue;
 				}
 
-				if(current_scope == Main::scope_type::st_class) {
+				if(current_scope == Main::scope_type::st_class || current_scope == Main::scope_type::st_struct) {
 					if(line.rfind("public:", 0) != std::string::npos) {
 						should_add_to_lines = true;
-					} else if(line.rfind("protected:", 0) != std::string::npos) {
-						should_add_to_lines = false;
-					} else if(line.rfind("private:", 0) != std::string::npos) {
+					} else if(line.rfind("protected:", 0) != std::string::npos || line.rfind("private:", 0) != std::string::npos) {
 						should_add_to_lines = false;
 					} else {
 						if(should_add_to_lines) {

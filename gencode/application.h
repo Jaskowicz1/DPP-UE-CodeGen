@@ -1,11 +1,38 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright 2021 Craig Edwards and D++ contributors 
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/**
+ * @brief status of a member of a team who maintain a bot/application
+ */
 UENUM(BlueprintType)
 enum team_member_status : uint8 {
 	tms_invited = 1,
 	tms_accepted = 2
 };
 
+/**
+ * @brief Flags for a bot or application
+ */
 UENUM(BlueprintType)
 enum application_flags : uint32 {
 	apf_application_automod_rule_create_badge = (1 << 6),
@@ -20,6 +47,21 @@ enum application_flags : uint32 {
 	apf_application_command_badge = (1 << 23)
 };
 
+/**
+ * @brief Represents the settings for the bot/application's in-app authorization link
+ */
+USTRUCT(BlueprintType)
+struct application_install_params {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief Team member role types for application team members.
+ * 
+ * These are hard coded to string forms by discord. If further types are added,
+ * this enum will be extended to support them.
+ */
 UENUM(BlueprintType)
 enum team_member_role_t : uint8 {
 	tmr_owner,	//!< Team owner
@@ -28,6 +70,9 @@ enum team_member_role_t : uint8 {
 	tmr_readonly,	//!< Read-Only
 };
 
+/**
+ * @brief Represents a team member on a team who maintain a bot/application
+ */
 USTRUCT(BlueprintType)
 struct team_member {
 	GENERATED_BODY()
@@ -49,6 +94,9 @@ struct team_member {
 
 };
 
+/**
+ * @brief Represents a team of users who maintain a bot/application
+ */
 USTRUCT(BlueprintType)
 struct app_team {
 	GENERATED_BODY()
@@ -67,6 +115,9 @@ struct app_team {
 
 };
 
+/**
+ * @brief The application class represents details of a bot application
+ */
 USTRUCT(BlueprintType)
 struct application {
 	GENERATED_BODY()
@@ -189,4 +240,12 @@ struct application {
 	int			verification_state;		//!< @warning This variable is not documented by discord, we have no idea what it means and how it works. Use at your own risk.
 
 };
+
+/** A group of applications.
+ * This is not currently ever sent by Discord API but the DPP standard setup for
+ * objects that can be received by REST has the possibility for this, so this exists.
+ * Don't ever expect to see one at present.
+ */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_map;")
+typedef TMap<FString, application> application_map;
 

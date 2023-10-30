@@ -1,5 +1,28 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * Copyright 2021 Craig Edwards and D++ contributors
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/**
+ * @brief Various bitmask flags used to represent information about a user
+ */
 UENUM(BlueprintType)
 enum user_flags : uint32 {
 	u_bot =				0b00000000000000000000000000000001,
@@ -28,6 +51,9 @@ enum user_flags : uint32 {
 	u_animated_banner =			0b00000000100000000000000000000000,
 };
 
+/**
+ * @brief Represents a user on discord. May or may not be a member of a guild.
+ */
 USTRUCT(BlueprintType)
 struct user {
 	GENERATED_BODY()
@@ -55,6 +81,11 @@ struct user {
 
 };
 
+/**
+ * @brief A user with additional fields only available via the oauth2 identify scope.
+ * These are not included in user as additional scopes are needed to fetch them
+ * which bots do not normally have.
+ */
 USTRUCT(BlueprintType)
 struct user_identified {
 	GENERATED_BODY()
@@ -66,4 +97,24 @@ struct user_identified {
 	bool			verified;	//!< Optional: whether the email on this account has been verified       email
 
 };
+
+/**
+ * @brief helper function to deserialize a user from json
+ *
+ * @see https://github.com/nlohmann/json#arbitrary-types-conversions
+ *
+ * @param j output json object
+ * @param u user to be deserialized
+ */
+/**
+ * @brief helper function to deserialize a user_identified from json
+ *
+ * @see https://github.com/nlohmann/json#arbitrary-types-conversions
+ *
+ * @param j output json object
+ * @param u user to be deserialized
+ */
+/** A group of users */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user_map;")
+typedef TMap<FString, user> user_map;
 

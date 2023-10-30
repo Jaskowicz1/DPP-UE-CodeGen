@@ -1,5 +1,28 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * Copyright 2021 Craig Edwards and D++ contributors
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/**
+ * @brief Represents the various discord permissions
+ */
 UENUM(BlueprintType)
 enum permissions : uint64 {
 	p_create_instant_invite = 0x00000000001,    //!< allows creation of instant invites
@@ -50,9 +73,52 @@ enum permissions : uint64 {
 	p_use_clyde_ai = 0x0000800000000000, //!< allows use of Clyde AI
 };
 
+/**
+ * @brief Represents the various discord permissions
+ * @deprecated Use permissions instead.
+ */
+/**
+ * @brief Represents a permission bitmask (refer to enum permissions) which are held in an int64
+ */
 USTRUCT(BlueprintType)
 struct permission {
 	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+		return value;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+		return value;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+		return *this;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+		return *this;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	template <typename... T>
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+		return *this;
 
 };
 

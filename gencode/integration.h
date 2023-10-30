@@ -1,5 +1,29 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright 2021 Craig Edwards and D++ contributors 
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/**
+ * @brief Integration types
+ */
 UENUM(BlueprintType)
 enum integration_type : uint8 {
 	i_twitch,
@@ -8,6 +32,9 @@ enum integration_type : uint8 {
 	i_guild_subscription,
 };
 
+/**
+ * @brief Integration flags
+ */
 UENUM(BlueprintType)
 enum integration_flags : uint8 {
 	if_enabled 	=	0b00000001,		//!< is this integration enabled
@@ -17,6 +44,27 @@ enum integration_flags : uint8 {
 	if_expire_kick 	= 	0b00010000,		//!< kick user when their subscription expires, otherwise only remove the role that is specified by `role_id`. @warning This is not provided for discord bot integrations.
 };
 
+/**
+ * @brief An application that has been integrated
+ */
+USTRUCT(BlueprintType)
+struct integration_app {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief The account information for an integration.
+ */
+USTRUCT(BlueprintType)
+struct integration_account {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief Represents an integration on a guild, e.g. a connection to twitch.
+ */
 USTRUCT(BlueprintType)
 struct integration {
 	GENERATED_BODY()
@@ -25,7 +73,7 @@ struct integration {
 	FString 			name;			//!< integration name
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|integration")
-	int 			flags;			//!< integration flags from dpp::integration_flags
+	int 			flags;			//!< integration flags from integration_flags
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|integration")
 	FString 			role_id;		//!< id that this integration uses for "subscribers" @warning This is not provided for discord bot integrations.
@@ -50,6 +98,9 @@ struct integration {
 
 };
 
+/**
+ * @brief The connection object that the user has attached.
+ */
 USTRUCT(BlueprintType)
 struct connection {
 	GENERATED_BODY()
@@ -82,4 +133,12 @@ struct connection {
 	bool				visible;	//!< visibility of this connection
 
 };
+
+/** A group of integrations */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|integration_map;")
+typedef TMap<FString, integration> integration_map;
+
+/** A group of connections */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|connection_map;")
+typedef TMap<FString, connection> connection_map;
 

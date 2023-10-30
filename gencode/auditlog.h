@@ -1,5 +1,29 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright 2021 Craig Edwards and D++ contributors 
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/**
+ * @brief Defines types of audit log entry
+ */
 UENUM(BlueprintType)
 enum audit_type : uint8 {
 	aut_guild_update			=	1,
@@ -60,6 +84,51 @@ enum audit_type : uint8 {
 	aut_creator_monetization_terms_accepted = 151,
 };
 
+/**
+ * @brief Defines audit log changes
+ */
+USTRUCT(BlueprintType)
+struct audit_change {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief Extra information for an audit log entry
+ */
+USTRUCT(BlueprintType)
+struct audit_extra {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief An individual audit log entry
+ */
+USTRUCT(BlueprintType)
+struct audit_entry {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	FString			id;		//!< id of the entry
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	FString			target_id;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	TArray<audit_change>	changes;	//!< Optional: changes made to the target_id
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	audit_type			type;		//!< type of action that occurred
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	std::optional<audit_extra>	extra;	//!< Optional: additional info for certain action types
+
+};
+
+/**
+ * @brief The auditlog class represents the audit log entries of a guild.
+ */
 USTRUCT(BlueprintType)
 struct auditlog {
 	GENERATED_BODY()

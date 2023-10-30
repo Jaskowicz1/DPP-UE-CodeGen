@@ -1,5 +1,27 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright 2021 Craig Edwards and D++ contributors 
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/** @brief Flag integers as received from and sent to discord */
 UENUM(BlueprintType)
 enum channel_type : uint8 {
 	CHANNEL_TEXT		= 0,	//!< a text channel within a server
@@ -18,6 +40,11 @@ enum channel_type : uint8 {
 	CHANNEL_MEDIA		= 16,	//!< Media channel that can only contain threads, similar to forum channels
 };
 
+/** @brief Our flags as stored in the object
+ * @note The bottom four bits of this flag are reserved to contain the channel_type values
+ * listed above as provided by Discord. If discord add another value > 15, we will have to
+ * shuffle these values upwards by one bit.
+ */
 UENUM(BlueprintType)
 enum channel_flags : uint16 {
 	c_nsfw =		0b0000000000010000,
@@ -28,12 +55,18 @@ enum channel_flags : uint16 {
 	c_hide_media_download_options = 0b0001000000000000,
 };
 
+/**
+ * @brief Types for sort posts in a forum channel
+ */
 UENUM(BlueprintType)
 enum default_forum_sort_order_t : uint8 {
 	so_latest_activity = 0,
 	so_creation_date = 1,
 };
 
+/**
+ * @brief Types of forum layout views that indicates how the threads in a forum channel will be displayed for users by default
+ */
 UENUM(BlueprintType)
 enum forum_layout_type : uint8 {
 	fl_not_set = 0, //!< No default has been set for the forum channel
@@ -41,12 +74,37 @@ enum forum_layout_type : uint8 {
 	fl_gallery_view = 2, //!< Display posts as a collection of tiles
 };
 
+/**
+ * @brief channel permission overwrite types
+ */
 UENUM(BlueprintType)
 enum overwrite_type : uint8 {
 	ot_role = 0,
 	ot_member = 1
 };
 
+/**
+ * @brief Channel permission overwrites
+ */
+USTRUCT(BlueprintType)
+struct permission_overwrite {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief metadata for threads
+ */
+USTRUCT(BlueprintType)
+struct thread_metadata {
+	GENERATED_BODY()
+
+};
+
+/**
+ * @brief Auto archive duration of threads which will stop showing in the channel list after the specified period of inactivity.
+ * Defined as an enum to fit into 1 byte. Internally it'll be translated to minutes to match the API
+ */
 UENUM(BlueprintType)
 enum auto_archive_duration_t : uint8 {
 	arc_1_hour = 1,
@@ -55,6 +113,56 @@ enum auto_archive_duration_t : uint8 {
 	arc_1_week = 4,
 };
 
+/**
+ * @brief represents membership of a user with a thread
+ */
+USTRUCT(BlueprintType)
+struct thread_member {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	FString thread_id;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	FString user_id;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	FDateTime joined;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	int64 flags;
+
+};
+
+/**
+ * @brief Represents a tag that is able to be applied to a thread in a forum or media channel
+ */
+USTRUCT(BlueprintType)
+struct forum_tag {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|forum_tag")
+	FString name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|forum_tag")
+	TVariant<FString, FString> emoji;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|forum_tag")
+	bool moderated;
+
+};
+
+/**
+ * @brief A group of thread member objects. the key is the user_id of the thread_member
+ */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member_map;")
+typedef TMap<FString, thread_member> thread_member_map;
+
+/**
+ * @brief A definition of a discord channel.
+ * There are one of these for every channel type except threads. Threads are
+ * special FStrings. Get it? A Discord pun. Hahaha. .... I'll get my coat.
+ */ 
 USTRUCT(BlueprintType)
 struct channel {
 	GENERATED_BODY()
@@ -127,6 +235,9 @@ struct channel {
 
 };
 
+/** @brief A definition of a discord thread.
+ * A thread is a superset of a channel. Not to be confused with `std::thread`!
+ */
 USTRUCT(BlueprintType)
 struct thread {
 	GENERATED_BODY()
@@ -154,3 +265,33 @@ struct thread {
 
 };
 
+/**
+ * @brief Serialize a thread_metadata object to json
+ *
+ * @param j JSON object to serialize to
+ * @param tmdata object to serialize
+ */
+/**
+ * @brief Serialize a permission_overwrite object to json
+ *
+ * @param j JSON object to serialize to
+ * @param po object to serialize
+ */
+/**
+ * @brief A group of channels
+ */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel_map;")
+typedef TMap<FString, channel> channel_map;
+
+/**
+ * @brief A group of threads
+ */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_map;")
+typedef TMap<FString, thread> thread_map;
+
+/**
+ * @brief A thread alongside the bot's optional thread_member object tied to it
+ */
+/**
+ * @brief A map of threads alongside optionally the thread_member tied to the bot if it is in the thread. The map's key is the thread id. Returned from the cluster::threads_get_active method
+ */

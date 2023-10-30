@@ -1,5 +1,30 @@
 #pragma once
  
+/************************************************************************************
+ *
+ * D++, A Lightweight C++ library for Discord
+ *
+ * Copyright 2021 Craig Edwards and D++ contributors
+ * (https://github.com/brainboxdotcc/DPP/graphs/contributors)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ ************************************************************************************/
+/**
+ * @brief Represents voice regions for guilds and channels.
+ * @deprecated Deprecated in favour of per-channel regions.
+ * Please use channel::rtc_region instead.
+ */
 UENUM(BlueprintType)
 enum region : uint8 {
 	r_brazil,		//!< Brazil
@@ -18,6 +43,9 @@ enum region : uint8 {
 	r_western_europe	//!< Western Europe
 };
 
+/**
+ * @brief The various flags that represent the status of a guild object
+ */
 UENUM(BlueprintType)
 enum guild_flags : uint32 {
 	g_large =				0b00000000000000000000000000000001,
@@ -54,6 +82,9 @@ enum guild_flags : uint32 {
 	g_channel_banners =			0b10000000000000000000000000000000,
 };
 
+/**
+ * @brief Additional boolean flag values for guild, as guild_flags is full
+ */
 UENUM(BlueprintType)
 enum guild_flags_extra : uint16 {
 	g_premium_progress_bar_enabled =	0b0000000000000001,
@@ -67,6 +98,10 @@ enum guild_flags_extra : uint16 {
 	g_raid_alerts_disabled = 0b0000000100000000,
 };
 
+/**
+ * @brief Various flags that can be used to indicate the status of a guild member.
+ * @note Use the setter functions in guild_member and do not toggle the bits yourself.
+ */
 UENUM(BlueprintType)
 enum guild_member_flags : uint16 {
 	gm_deaf =		0b0000000000000001,
@@ -82,6 +117,10 @@ enum guild_member_flags : uint16 {
 	gm_nickname_action = 0b0000010000000000,
 };
 
+/**
+ * @brief Represents user membership upon a guild.
+ * This contains the user's nickname, guild roles, and any other guild-specific flags.
+ */
 USTRUCT(BlueprintType)
 struct guild_member {
 	GENERATED_BODY()
@@ -106,6 +145,47 @@ struct guild_member {
 
 };
 
+/**
+ * @brief Defines a channel on a server's welcome screen
+ */
+USTRUCT(BlueprintType)
+struct welcome_channel: {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|welcome_channel:")
+	FString description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|welcome_channel:")
+	FString emoji_name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|welcome_channel:")
+	FString channel_id;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|welcome_channel:")
+	FString emoji_id;
+
+};
+
+/**
+ * @brief Defines a server's welcome screen
+ */
+USTRUCT(BlueprintType)
+struct welcome_screen: {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|welcome_screen:")
+	FString description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|welcome_screen:")
+	TArray<welcome_channel> welcome_channels;
+
+};
+
+/**
+ * @brief Guild NSFW level.
+ * Used to represent just how naughty this guild is. Naughty  guild, go sit in the corner.
+ * @note This is set by Discord, and cannot be set by any bot or user on the guild.
+ */
 UENUM(BlueprintType)
 enum guild_nsfw_level_t : uint8 {
 	nsfw_default		=	0,
@@ -114,6 +194,11 @@ enum guild_nsfw_level_t : uint8 {
 	nsfw_age_restricted	=	3
 };
 
+/**
+ * @brief explicit content filter level.
+ * This is set by a guild admin, but can be forced to a setting if the server is verified,
+ * partnered, official etc.
+ */
 UENUM(BlueprintType)
 enum guild_explicit_content_t : uint8 {
 	expl_disabled =			0,
@@ -121,12 +206,19 @@ enum guild_explicit_content_t : uint8 {
 	expl_all_members =		2
 };
 
+/**
+ * @brief MFA level for server. If set to elevated all moderators need MFA to perform specific
+ * actions such as kick or ban.
+ */
 UENUM(BlueprintType)
 enum mfa_level_t : uint8 {
 	mfa_none = 0,
 	mfa_elevated = 1
 };
 
+/**
+ * @brief Guild verification level
+ */
 UENUM(BlueprintType)
 enum verification_level_t : uint8 {
 	ver_none =	0,
@@ -136,12 +228,18 @@ enum verification_level_t : uint8 {
 	ver_very_high =	4,
 };
 
+/**
+ * @brief Default message notification level
+ */
 UENUM(BlueprintType)
 enum default_message_notification_t: : uint8 {
 	dmn_all = 0,
 	dmn_only_mentions = 1,
 };
 
+/**
+ * @brief Premium tier
+ */
 UENUM(BlueprintType)
 enum guild_premium_tier_t: : uint8 {
 	tier_none = 0,
@@ -150,6 +248,9 @@ enum guild_premium_tier_t: : uint8 {
 	tier_3 = 3,
 };
 
+/**
+ * @brief Voice AFK timeout values for guild::afk_timeout
+ */
 UENUM(BlueprintType)
 enum guild_afk_timeout_t: : uint8 {
 	afk_off,
@@ -160,6 +261,14 @@ enum guild_afk_timeout_t: : uint8 {
 	afk_3600,
 };
 
+/** @brief Guild members container
+ */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|members_container;")
+typedef TMap<FString, guild_member> members_container;
+
+/**
+ * @brief Represents a guild on Discord (AKA a server)
+ */
 USTRUCT(BlueprintType)
 struct guild {
 	GENERATED_BODY()
@@ -186,13 +295,13 @@ struct guild {
 	TArray<FString> emojis;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild")
-	std::map<FString, voicestate> voice_members;
+	TMap<FString, voicestate> voice_members;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild")
 	members_container members;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild")
-	dpp::welcome_screen welcome_screen;
+	welcome_screen welcome_screen;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild")
 	utility::icon icon;
@@ -277,6 +386,13 @@ struct guild {
 
 };
 
+/** A container of guilds */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_map;")
+typedef TMap<FString, guild> guild_map;
+
+/**
+ * @brief Represents a guild widget, simple web widget of member list
+ */
 USTRUCT(BlueprintType)
 struct guild_widget {
 	GENERATED_BODY()
@@ -289,18 +405,27 @@ struct guild_widget {
 
 };
 
+/**
+ * @brief The onboarding mode for the onboarding object. Defines the criteria used to satisfy Onboarding constraints that are required for enabling.
+ */
 UENUM(BlueprintType)
 enum onboarding_mode: : uint8 {
 	gom_default = 	0, //!< Counts only Default Channels towards constraints
 	gom_advanced = 	1, //!< Counts Default Channels and Questions towards constraints
 };
 
+/**
+ * @brief The various types of onboarding_prompt
+ */
 UENUM(BlueprintType)
 enum onboarding_prompt_type: : uint8 {
 	opt_multiple_choice = 0, //!< Multiple choice
 	opt_dropdown = 1, //!< Dropdown
 };
 
+/**
+ * @brief Various flags for onboarding_prompt
+ */
 UENUM(BlueprintType)
 enum onboarding_prompt_flags: : uint8 {
 	opf_single_select = 1 << 0, //!< Indicates whether users are limited to selecting one option for the prompt
@@ -308,3 +433,87 @@ enum onboarding_prompt_flags: : uint8 {
 	opf_in_onboarding = 1 << 2, //!< Indicates whether the prompt is present in the onboarding flow. If set, the prompt will only appear in the Channels & Roles tab
 };
 
+/**
+ * @brief Represents an onboarding prompt option
+ */
+USTRUCT(BlueprintType)
+struct onboarding_prompt_option: {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt_option:")
+	TArray<FString> channel_ids; //!< IDs for channels a member is added to when the option is selected
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt_option:")
+	TArray<FString> role_ids; //!< IDs for roles assigned to a member when the option is selected
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt_option:")
+	emoji emoji; //!< Emoji of the option
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt_option:")
+	FString title; //!< Title of the option
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt_option:")
+	FString description; //!< Description of the option
+
+};
+
+/**
+ * @brief Represents an onboarding prompt
+ */
+USTRUCT(BlueprintType)
+struct onboarding_prompt: {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt:")
+	TArray<onboarding_prompt_option> options; //!< Options available within the prompt
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt:")
+	FString title; //!< Title of the prompt
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding_prompt:")
+	int flags; //!< A set of flags built from the bitmask defined by onboarding_prompt_flags
+
+};
+
+/**
+ * @brief Represents a guild's onboarding flow
+ */
+USTRUCT(BlueprintType)
+struct onboarding: {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding:")
+	FString guild_id; //!< ID of the guild this onboarding is part of
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding:")
+	TArray<onboarding_prompt> prompts; //!< Prompts shown during onboarding and in customize community
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding:")
+	TArray<FString> default_channel_ids; //!< Channel IDs that members get opted into automatically
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|onboarding:")
+	bool enabled; //!< Whether onboarding is enabled in the guild
+
+};
+
+/**
+ * @brief helper function to deserialize a guild_member from json
+ *
+ * @see https://github.com/nlohmann/json#arbitrary-types-conversions
+ *
+ * @param j output json object
+ * @param gm guild_member to be deserialized
+ */
+/** A container of guild members */
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_member_map;")
+typedef TMap<FString, guild_member> guild_member_map;
+
+/**
+ * @brief Get the guild_member from cache of given IDs
+ *
+ * @param guild_id ID of the guild to find guild_member for
+ * @param user_id ID of the user to find guild_member for
+ *
+ * @throw cache_exception if the guild or guild_member is not found in the cache
+ * @return guild_member the cached object, if found
+ */
