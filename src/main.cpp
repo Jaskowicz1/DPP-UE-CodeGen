@@ -32,10 +32,10 @@ int main() {
 		}
 
 		/* This is just temp, I want to only do webhook as a test. */
-		if (file_name != "channel.h") {
+		/* if (file_name != "channel.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
-		}
+		}*/
 
 		std::cout << "Generating code from: " << file_name << "\n";
 
