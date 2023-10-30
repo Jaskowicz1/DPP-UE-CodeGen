@@ -247,5 +247,5 @@ struct application {
  * Don't ever expect to see one at present.
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_map;")
-typedef TMap<FString, application> application_map;
+TMap<FString, application> application_map;
 

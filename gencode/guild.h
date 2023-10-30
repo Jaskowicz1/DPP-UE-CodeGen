@@ -264,7 +264,7 @@ enum guild_afk_timeout_t: : uint8 {
 /** @brief Guild members container
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|members_container;")
-typedef TMap<FString, guild_member> members_container;
+TMap<FString, guild_member> members_container;
 
 /**
  * @brief Represents a guild on Discord (AKA a server)
@@ -388,7 +388,7 @@ struct guild {
 
 /** A container of guilds */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_map;")
-typedef TMap<FString, guild> guild_map;
+TMap<FString, guild> guild_map;
 
 /**
  * @brief Represents a guild widget, simple web widget of member list
@@ -506,7 +506,7 @@ struct onboarding: {
  */
 /** A container of guild members */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_member_map;")
-typedef TMap<FString, guild_member> guild_member_map;
+TMap<FString, guild_member> guild_member_map;
 
 /**
  * @brief Get the guild_member from cache of given IDs

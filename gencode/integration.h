@@ -136,9 +136,9 @@ struct connection {
 
 /** A group of integrations */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|integration_map;")
-typedef TMap<FString, integration> integration_map;
+TMap<FString, integration> integration_map;
 
 /** A group of connections */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|connection_map;")
-typedef TMap<FString, connection> connection_map;
+TMap<FString, connection> connection_map;
 

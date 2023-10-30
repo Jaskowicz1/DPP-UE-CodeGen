@@ -59,5 +59,5 @@ struct dtemplate {
 
 /** A container of invites */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate_map;")
-typedef TMap<FString, dtemplate> dtemplate_map;
+TMap<FString, dtemplate> dtemplate_map;
 

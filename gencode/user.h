@@ -116,5 +116,5 @@ struct user_identified {
  */
 /** A group of users */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user_map;")
-typedef TMap<FString, user> user_map;
+TMap<FString, user> user_map;
 

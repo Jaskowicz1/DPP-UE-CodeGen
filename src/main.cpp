@@ -177,8 +177,11 @@ int main() {
 					std::string typedef_name = line;
 					typedef_name = Main::tokenize(typedef_name, "> ")[1];
 
+					std::string new_line = line;
+					new_line.erase(0,8); // Removes "typedef "
+
 					file_lines.emplace_back("UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + typedef_name + "\")");
-					file_lines.emplace_back(line);
+					file_lines.emplace_back(new_line);
 					file_lines.emplace_back("");
 				}
 			} else {

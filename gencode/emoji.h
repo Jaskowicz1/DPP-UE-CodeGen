@@ -61,5 +61,5 @@ struct emoji {
  * @brief Group of emojis
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji_map;")
-typedef TMap<FString, emoji> emoji_map;
+TMap<FString, emoji> emoji_map;
 

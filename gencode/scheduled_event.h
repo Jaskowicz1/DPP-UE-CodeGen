@@ -109,11 +109,11 @@ struct scheduled_event {
  * @brief A group of scheduled events
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event_map;")
-typedef TMap<FString, scheduled_event> scheduled_event_map;
+TMap<FString, scheduled_event> scheduled_event_map;
 
 /**
  * @brief A group of scheduled event members
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|event_member_map;")
-typedef TMap<FString, event_member> event_member_map;
+TMap<FString, event_member> event_member_map;
 

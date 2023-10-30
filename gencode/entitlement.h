@@ -73,5 +73,5 @@ struct entitlement {
  * @brief Group of entitlements.
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement_map;")
-typedef TMap<FString, entitlement> entitlement_map;
+TMap<FString, entitlement> entitlement_map;
 

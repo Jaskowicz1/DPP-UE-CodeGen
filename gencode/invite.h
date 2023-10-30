@@ -99,5 +99,5 @@ struct invite {
 
 /** A container of invites */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|invite_map;")
-typedef TMap<FString, invite> invite_map;
+TMap<FString, invite> invite_map;
 

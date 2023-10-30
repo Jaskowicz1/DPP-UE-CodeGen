@@ -58,7 +58,7 @@ enum command_option_type : uint8 {
  * You can retrieve them with std::get().
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_value;")
-typedef TVariant<FString, int64_t, bool, FString, double> command_value;
+TVariant<FString, int64_t, bool, FString, double> command_value;
 
 /**
  * @brief This struct represents choices in a multiple choice option
@@ -92,7 +92,7 @@ struct command_option_choice {
  * The `int64_t` is for the integer range or string length that can be entered. The `double` is for the decimal range that can be entered
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option_range;")
-typedef TVariant<int64_t, double> command_option_range;
+TVariant<int64_t, double> command_option_range;
 
 /**
  * @brief Each command option is a command line parameter.
@@ -579,11 +579,11 @@ struct slashcommand {
  * @brief A group of application slash commands
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand_map;")
-typedef TMap<FString, slashcommand> slashcommand_map;
+TMap<FString, slashcommand> slashcommand_map;
 
 /**
  * @brief A group of guild command permissions
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions_map;")
-typedef TMap<FString, guild_command_permissions> guild_command_permissions_map;
+TMap<FString, guild_command_permissions> guild_command_permissions_map;
 

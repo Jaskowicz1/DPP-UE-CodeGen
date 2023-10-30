@@ -41,5 +41,5 @@ struct ban {
  * A group of bans. The key is the user ID
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ban_map;")
-typedef TMap<FString, ban> ban_map;
+TMap<FString, ban> ban_map;
 

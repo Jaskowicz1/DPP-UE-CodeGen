@@ -80,5 +80,5 @@ struct webhook {
  * @brief A group of webhooks
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook_map;")
-typedef TMap<FString, webhook> webhook_map;
+TMap<FString, webhook> webhook_map;
 

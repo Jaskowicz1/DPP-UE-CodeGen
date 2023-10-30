@@ -156,7 +156,7 @@ struct forum_tag {
  * @brief A group of thread member objects. the key is the user_id of the thread_member
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member_map;")
-typedef TMap<FString, thread_member> thread_member_map;
+TMap<FString, thread_member> thread_member_map;
 
 /**
  * @brief A definition of a discord channel.
@@ -281,13 +281,13 @@ struct thread {
  * @brief A group of channels
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel_map;")
-typedef TMap<FString, channel> channel_map;
+TMap<FString, channel> channel_map;
 
 /**
  * @brief A group of threads
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_map;")
-typedef TMap<FString, thread> thread_map;
+TMap<FString, thread> thread_map;
 
 /**
  * @brief A thread alongside the bot's optional thread_member object tied to it

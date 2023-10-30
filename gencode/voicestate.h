@@ -63,5 +63,5 @@ struct voicestate {
 
 /** A container of voicestates */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate_map;")
-typedef TMap<FString, voicestate> voicestate_map;
+TMap<FString, voicestate> voicestate_map;
 

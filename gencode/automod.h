@@ -154,5 +154,5 @@ struct automod_rule {
 /** A group of automod rules.
  */
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule_map;")
-typedef TMap<FString, automod_rule> automod_rule_map;
+TMap<FString, automod_rule> automod_rule_map;
 
