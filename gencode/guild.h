@@ -263,7 +263,7 @@ enum guild_afk_timeout_t: : uint8 {
 
 /** @brief Guild members container
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|members_container;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|members_conta")
 TMap<FString, guild_member> members_container;
 
 /**
@@ -387,7 +387,7 @@ struct guild {
 };
 
 /** A container of guilds */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild")
 TMap<FString, guild> guild_map;
 
 /**
@@ -505,7 +505,7 @@ struct onboarding: {
  * @param gm guild_member to be deserialized
  */
 /** A container of guild members */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_member_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_member")
 TMap<FString, guild_member> guild_member_map;
 
 /**

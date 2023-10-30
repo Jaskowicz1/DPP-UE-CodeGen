@@ -57,7 +57,7 @@ enum command_option_type : uint8 {
  *
  * You can retrieve them with std::get().
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_value;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_v")
 TVariant<FString, int64_t, bool, FString, double> command_value;
 
 /**
@@ -91,7 +91,7 @@ struct command_option_choice {
  * @brief A minimum or maximum value/length for co_number, co_integer and co_string types of a command_option.
  * The `int64_t` is for the integer range or string length that can be entered. The `double` is for the decimal range that can be entered
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option_range;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option_r")
 TVariant<int64_t, double> command_option_range;
 
 /**
@@ -578,12 +578,12 @@ struct slashcommand {
 /**
  * @brief A group of application slash commands
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
 TMap<FString, slashcommand> slashcommand_map;
 
 /**
  * @brief A group of guild command permissions
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions")
 TMap<FString, guild_command_permissions> guild_command_permissions_map;
 

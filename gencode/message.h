@@ -781,14 +781,14 @@ struct message {
 };
 
 /** A group of messages */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
 TMap<FString, message> message_map;
 
 /** A group of stickers */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
 TMap<FString, sticker> sticker_map;
 
 /** A group of sticker packs */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
 TMap<FString, sticker_pack> sticker_pack_map;
 

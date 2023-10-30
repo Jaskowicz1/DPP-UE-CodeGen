@@ -29,13 +29,13 @@
 /**
  * @brief A callback for socket status
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|socket_callback_t;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|socket_callba")
 std::function<socket()> socket_callback_t;
 
 /**
  * @brief A socket notification callback
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|socket_notification_t;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|socket_notificati")
 std::function<void()> socket_notification_t;
 
 /**

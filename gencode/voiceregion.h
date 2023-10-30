@@ -53,6 +53,6 @@ struct voiceregion {
 /**
  * @brief A group of voice regions
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voiceregion_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voiceregion")
 TMap<FString, voiceregion> voiceregion_map;
 

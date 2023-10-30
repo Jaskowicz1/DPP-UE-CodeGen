@@ -67,6 +67,6 @@ struct sku {
 /**
  * @brief Group of SKUs.
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
 TMap<FString, sku> sku_map;
 

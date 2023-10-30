@@ -115,6 +115,6 @@ struct user_identified {
  * @param u user to be deserialized
  */
 /** A group of users */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
 TMap<FString, user> user_map;
 

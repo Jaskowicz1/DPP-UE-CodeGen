@@ -149,10 +149,10 @@ struct application_role_connection {
 };
 
 /** A group of roles */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
 TMap<FString, role> role_map;
 
 /** A group of application_role_connection_metadata objects */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_role_connection_metadata_list;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_role_connection_metadata_")
 TArray<application_role_connection_metadata> application_role_connection_metadata_list;
 

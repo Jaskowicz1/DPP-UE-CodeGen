@@ -246,6 +246,6 @@ struct application {
  * objects that can be received by REST has the possibility for this, so this exists.
  * Don't ever expect to see one at present.
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application")
 TMap<FString, application> application_map;
 

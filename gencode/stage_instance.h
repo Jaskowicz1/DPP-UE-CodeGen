@@ -56,6 +56,6 @@ struct stage_instance {
 };
 
 /** A group of stage instances */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
 TMap<FString, stage_instance> stage_instance_map;
 

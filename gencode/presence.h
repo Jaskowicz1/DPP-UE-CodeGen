@@ -252,6 +252,6 @@ struct presence {
 };
 
 /** A container of presences */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence")
 TMap<FString, presence> presence_map;
 

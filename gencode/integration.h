@@ -135,10 +135,10 @@ struct connection {
 };
 
 /** A group of integrations */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|integration_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|integration")
 TMap<FString, integration> integration_map;
 
 /** A group of connections */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|connection_map;")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|connection")
 TMap<FString, connection> connection_map;
 
