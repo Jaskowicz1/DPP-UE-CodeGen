@@ -358,7 +358,7 @@ struct component_interaction {
  * @brief An auto complete interaction
  */
 USTRUCT(BlueprintType)
-struct autocomplete_interaction {
+struct autocomplete_interaction : public command_interaction {
 	GENERATED_BODY()
 
 };

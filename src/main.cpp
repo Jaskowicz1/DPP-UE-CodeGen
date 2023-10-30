@@ -38,24 +38,16 @@ int main() {
 		}
 
 		/* This is just temp, I want to only do webhook as a test. */
-		/* if (file_name != "channel.h") {
+		/*if (file_name != "dispatcher.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
-		}
-		*/
+		}*/
 
 		std::cout << "Generating code from: " << file_name << "\n";
 
 		std::ifstream file(Main::file_path_prefix + file_name);
 
-		/*
-		if (file.is_open()) {
-			std::cout << file_name + " is currently open. Aborting file..." << "\n";
-			continue;
-		}
-		 */
-
-		std::string line;
+		std::string line{};
 
 		const std::vector<std::string> new_struct_start_lines =
 		{
@@ -70,7 +62,7 @@ int main() {
 
 		Main::scope_type current_scope = Main::scope_type::st_none;
 
-		std::string scope_name = "";
+		std::string scope_name{""};
 
 		/**
 		 * @brief Should we add the current line to file_lines?
@@ -84,18 +76,21 @@ int main() {
 
 		while (std::getline(file, line)) {
 
-			std::string temp_line = line;
+			// std::cout << line << "\n";
+
+			std::string temp_line{line};
 			temp_line.erase(std::remove_if(temp_line.begin(), temp_line.end(), isspace), temp_line.end());
 			temp_line.erase(std::remove(temp_line.begin(), temp_line.end(), '\t'), temp_line.end());
 
 			/* Is this a macro? */
 			if(temp_line.rfind('#', 0) == 0) {
-				if(temp_line.find("CORO") != std::string::npos) {
+				if(temp_line.find("CORO") != std::string::npos && temp_line.find("/*DPP_CORO*/") == std::string::npos) {
 					in_coro_func = true;
 					continue;
 				}
 
 				if(temp_line.find("#endif") != std::string::npos && in_coro_func) {
+					std::cout << "ending coro." << "\n";
 					in_coro_func = false;
 					continue;
 				}
@@ -168,7 +163,30 @@ int main() {
 
 					file_lines.emplace_back("USTRUCT(BlueprintType)");
 
-					file_lines.emplace_back("struct " + struct_name + " {");
+					/* Does the enum declare what type of struct it is?
+					 * If not, we don't declare it.
+					 */
+					if (line.find(':') == std::string::npos) {
+						file_lines.emplace_back("struct " + struct_name + " {");
+					} else {
+						std::string struct_type{};
+
+						/* Here, we're making sure that we do " : " because guild.h has a semicolon like `name_of_thing: public json` */
+						if(line.find(" : ") != std::string::npos) {
+							struct_type = Main::tokenize(line, " : ")[1];
+						} else {
+							struct_type = Main::tokenize(line, ": ")[1];
+						}
+
+						struct_type.erase(std::remove(struct_type.begin(), struct_type.end(), '{'), struct_type.end());
+
+						if(struct_type.find('<') != std::string::npos || struct_type.find('>') != std::string::npos) {
+							file_lines.emplace_back("struct " + struct_name + " {");
+						} else {
+							file_lines.emplace_back("struct " + struct_name + " : " + struct_type + "{");
+						}
+					}
+
 					file_lines.emplace_back("	GENERATED_BODY()");
 					file_lines.emplace_back("");
 
@@ -217,6 +235,10 @@ int main() {
 							}
 
 							std::string temp_scope = scope_name;
+
+							if(temp_scope.find("_t ") != std::string::npos) {
+								temp_scope = "events";
+							}
 
 							temp_scope[0] = std::toupper(temp_scope[0]);
 
