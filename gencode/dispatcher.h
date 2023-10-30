@@ -35,13 +35,13 @@ USTRUCT(BlueprintType)
 struct event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Event_dispatch_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString raw_event = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Event_dispatch_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	discord_client* from = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Event_dispatch_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	mutable bool cancelled = false;
 
 };
@@ -51,10 +51,10 @@ USTRUCT(BlueprintType)
 struct log_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Log_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	loglevel severity = ll_info;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Log_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message = {};
 
 };
@@ -64,13 +64,13 @@ USTRUCT(BlueprintType)
 struct guild_scheduled_event_user_add_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_user_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString event_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_user_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_user_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id = {};
 
 };
@@ -80,13 +80,13 @@ USTRUCT(BlueprintType)
 struct guild_scheduled_event_user_remove_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_user_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString event_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_user_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_user_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id = {};
 
 };
@@ -96,7 +96,7 @@ USTRUCT(BlueprintType)
 struct guild_scheduled_event_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	scheduled_event created = {};
 
 };
@@ -106,7 +106,7 @@ USTRUCT(BlueprintType)
 struct guild_scheduled_event_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	scheduled_event updated = {};
 
 };
@@ -116,7 +116,7 @@ USTRUCT(BlueprintType)
 struct guild_scheduled_event_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_scheduled_event_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	scheduled_event deleted = {};
 
 };
@@ -126,7 +126,7 @@ USTRUCT(BlueprintType)
 struct automod_rule_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	automod_rule created = {};
 
 };
@@ -136,7 +136,7 @@ USTRUCT(BlueprintType)
 struct automod_rule_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	automod_rule updated = {};
 
 };
@@ -146,7 +146,7 @@ USTRUCT(BlueprintType)
 struct automod_rule_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	automod_rule deleted = {};
 
 };
@@ -156,37 +156,37 @@ USTRUCT(BlueprintType)
 struct automod_rule_execute_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	automod_action action = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString rule_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	automod_trigger_type rule_trigger_type = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString channel_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString alert_system_message_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString content = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString matched_keyword = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule_execute_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString matched_content = {};
 
 };
@@ -196,7 +196,7 @@ USTRUCT(BlueprintType)
 struct stage_instance_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	stage_instance created = {};
 
 };
@@ -206,7 +206,7 @@ USTRUCT(BlueprintType)
 struct stage_instance_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	stage_instance updated = {};
 
 };
@@ -216,7 +216,7 @@ USTRUCT(BlueprintType)
 struct stage_instance_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	stage_instance deleted = {};
 
 };
@@ -226,7 +226,7 @@ USTRUCT(BlueprintType)
 struct voice_state_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_state_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	voicestate state = {};
 
 };
@@ -238,7 +238,7 @@ USTRUCT(BlueprintType)
 struct interaction_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	interaction command = {};
 
 };
@@ -259,10 +259,10 @@ USTRUCT(BlueprintType)
 struct button_click_t : public interaction_create_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Button_click_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString custom_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Button_click_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int component_type = {};
 
 };
@@ -271,10 +271,10 @@ USTRUCT(BlueprintType)
 struct form_submit_t : public interaction_create_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Form_submit_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString custom_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Form_submit_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<component> components = {};
 
 };
@@ -286,13 +286,13 @@ USTRUCT(BlueprintType)
 struct autocomplete_t : public interaction_create_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Autocomplete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Autocomplete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString name = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Autocomplete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<command_option> options = {};
 
 };
@@ -314,7 +314,7 @@ USTRUCT(BlueprintType)
 struct message_context_menu_t : public context_menu_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_context_menu_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	message ctx_message = {};
 
 };
@@ -326,7 +326,7 @@ USTRUCT(BlueprintType)
 struct user_context_menu_t : public context_menu_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User_context_menu_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user ctx_user = {};
 
 };
@@ -338,13 +338,13 @@ USTRUCT(BlueprintType)
 struct select_click_t : public interaction_create_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_click_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString custom_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_click_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<FString> values = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_click_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int component_type = {};
 
 };
@@ -354,10 +354,10 @@ USTRUCT(BlueprintType)
 struct guild_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild deleted;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id{0};
 
 };
@@ -367,10 +367,10 @@ USTRUCT(BlueprintType)
 struct guild_stickers_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_stickers_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_stickers_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<sticker> stickers = {};
 
 };
@@ -380,10 +380,10 @@ USTRUCT(BlueprintType)
 struct guild_join_request_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_join_request_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_join_request_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
 };
@@ -393,10 +393,10 @@ USTRUCT(BlueprintType)
 struct channel_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* deleting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel deleted;
 
 };
@@ -406,10 +406,10 @@ USTRUCT(BlueprintType)
 struct channel_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* updated = nullptr;
 
 };
@@ -419,10 +419,10 @@ USTRUCT(BlueprintType)
 struct ready_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ready_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString session_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ready_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int64 shard_id = {};
 
 };
@@ -432,13 +432,13 @@ USTRUCT(BlueprintType)
 struct message_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString channel_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id{0};
 
 };
@@ -448,13 +448,13 @@ USTRUCT(BlueprintType)
 struct guild_member_remove_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* removing_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user removed;
 
 };
@@ -464,10 +464,10 @@ USTRUCT(BlueprintType)
 struct resumed_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Resumed_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString session_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Resumed_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int64 shard_id = 0;
 
 };
@@ -477,10 +477,10 @@ USTRUCT(BlueprintType)
 struct guild_role_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* creating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	role* created = nullptr;
 
 };
@@ -490,19 +490,19 @@ USTRUCT(BlueprintType)
 struct typing_start_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Typing_start_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* typing_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Typing_start_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* typing_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Typing_start_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user* typing_user = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Typing_start_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Typing_start_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FDateTime timestamp = 0;
 
 };
@@ -512,10 +512,10 @@ USTRUCT(BlueprintType)
 struct voice_track_marker_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_track_marker_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	discord_voice_client* voice_client = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_track_marker_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString track_meta = {};
 
 };
@@ -525,28 +525,28 @@ USTRUCT(BlueprintType)
 struct message_reaction_add_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* reacting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user reacting_user = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild_member reacting_member = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString channel_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* reacting_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	emoji reacting_emoji = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message_author_id = {};
 
 };
@@ -556,10 +556,10 @@ USTRUCT(BlueprintType)
 struct guild_members_chunk_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_members_chunk_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* adding = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_members_chunk_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild_member_map* members = nullptr;
 
 };
@@ -569,22 +569,22 @@ USTRUCT(BlueprintType)
 struct message_reaction_remove_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* reacting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString reacting_user_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString channel_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* reacting_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	emoji reacting_emoji = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message_id = {};
 
 };
@@ -594,22 +594,22 @@ USTRUCT(BlueprintType)
 struct guild_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* created = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	presence_map presences = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	scheduled_event_map scheduled_events = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	stage_instance_map stage_instances = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	thread_map threads = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	sticker_map stickers = {};
 
 };
@@ -619,10 +619,10 @@ USTRUCT(BlueprintType)
 struct channel_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* creating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* created = nullptr;
 
 };
@@ -632,19 +632,19 @@ USTRUCT(BlueprintType)
 struct message_reaction_remove_emoji_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_emoji_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* reacting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_emoji_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString channel_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_emoji_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* reacting_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_emoji_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	emoji reacting_emoji = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_emoji_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message_id = {};
 
 };
@@ -654,16 +654,16 @@ USTRUCT(BlueprintType)
 struct message_delete_bulk_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_bulk_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* deleting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_bulk_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user* deleting_user = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_bulk_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* deleting_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_delete_bulk_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<FString> deleted = {};
 
 };
@@ -673,10 +673,10 @@ USTRUCT(BlueprintType)
 struct guild_role_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	role* updated = nullptr;
 
 };
@@ -686,13 +686,13 @@ USTRUCT(BlueprintType)
 struct guild_role_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* deleting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	role* deleted = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_role_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString role_id = {};
 
 };
@@ -702,13 +702,13 @@ USTRUCT(BlueprintType)
 struct channel_pins_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_pins_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* pin_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_pins_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* pin_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel_pins_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FDateTime timestamp = 0;
 
 };
@@ -718,16 +718,16 @@ USTRUCT(BlueprintType)
 struct message_reaction_remove_all_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_all_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* reacting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_all_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString channel_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_all_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* reacting_channel = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_reaction_remove_all_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString message_id = {};
 
 };
@@ -737,13 +737,13 @@ USTRUCT(BlueprintType)
 struct voice_server_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_server_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString guild_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_server_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString token = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_server_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString endpoint = {};
 
 };
@@ -753,10 +753,10 @@ USTRUCT(BlueprintType)
 struct guild_emojis_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_emojis_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<FString> emojis = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_emojis_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
 };
@@ -769,7 +769,7 @@ USTRUCT(BlueprintType)
 struct presence_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Presence_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	presence rich_presence = {};
 
 };
@@ -779,10 +779,10 @@ USTRUCT(BlueprintType)
 struct webhooks_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhooks_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* webhook_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhooks_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	channel* webhook_channel = nullptr;
 
 };
@@ -792,10 +792,10 @@ USTRUCT(BlueprintType)
 struct guild_member_add_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* adding_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild_member added = {};
 
 };
@@ -805,7 +805,7 @@ USTRUCT(BlueprintType)
 struct invite_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Invite_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	invite deleted_invite = {};
 
 };
@@ -815,7 +815,7 @@ USTRUCT(BlueprintType)
 struct guild_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updated = nullptr;
 
 };
@@ -825,7 +825,7 @@ USTRUCT(BlueprintType)
 struct guild_integrations_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_integrations_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
 };
@@ -835,10 +835,10 @@ USTRUCT(BlueprintType)
 struct guild_member_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_member_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild_member updated = {};
 
 };
@@ -848,7 +848,7 @@ USTRUCT(BlueprintType)
 struct invite_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Invite_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	invite created_invite = {};
 
 };
@@ -858,7 +858,7 @@ USTRUCT(BlueprintType)
 struct message_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	message msg = {};
 
 };
@@ -868,7 +868,7 @@ USTRUCT(BlueprintType)
 struct user_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user updated = {};
 
 };
@@ -878,7 +878,7 @@ USTRUCT(BlueprintType)
 struct message_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	message msg = {};
 
 };
@@ -888,7 +888,7 @@ USTRUCT(BlueprintType)
 struct guild_audit_log_entry_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_audit_log_entry_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	audit_entry entry = {};
 
 };
@@ -898,10 +898,10 @@ USTRUCT(BlueprintType)
 struct guild_ban_add_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_ban_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* banning_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_ban_add_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user banned = {};
 
 };
@@ -911,10 +911,10 @@ USTRUCT(BlueprintType)
 struct guild_ban_remove_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_ban_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* unbanning_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_ban_remove_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	user unbanned = {};
 
 };
@@ -924,7 +924,7 @@ USTRUCT(BlueprintType)
 struct integration_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Integration_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	integration created_integration = {};
 
 };
@@ -934,7 +934,7 @@ USTRUCT(BlueprintType)
 struct integration_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Integration_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	integration updated_integration = {};
 
 };
@@ -944,7 +944,7 @@ USTRUCT(BlueprintType)
 struct integration_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Integration_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	integration deleted_integration = {};
 
 };
@@ -954,10 +954,10 @@ USTRUCT(BlueprintType)
 struct thread_create_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* creating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_create_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	thread created = {};
 
 };
@@ -968,10 +968,10 @@ USTRUCT(BlueprintType)
 struct thread_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	thread updated = {};
 
 };
@@ -982,10 +982,10 @@ USTRUCT(BlueprintType)
 struct thread_delete_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* deleting_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_delete_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	thread deleted = {};
 
 };
@@ -996,13 +996,13 @@ USTRUCT(BlueprintType)
 struct thread_list_sync_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_list_sync_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_list_sync_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<thread> threads = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_list_sync_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<thread_member> members = {};
 
 };
@@ -1013,7 +1013,7 @@ USTRUCT(BlueprintType)
 struct thread_member_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_member_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	thread_member updated = {};
 
 };
@@ -1024,19 +1024,19 @@ USTRUCT(BlueprintType)
 struct thread_members_update_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_members_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString thread_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_members_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	guild* updating_guild = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_members_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int member_count = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_members_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<thread_member> added = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_members_update_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	TArray<FString> removed_ids = {};
 
 };
@@ -1049,10 +1049,10 @@ USTRUCT(BlueprintType)
 struct voice_buffer_send_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_buffer_send_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	class discord_voice_client* voice_client = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_buffer_send_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int buffer_size = 0;
 
 };
@@ -1062,13 +1062,13 @@ USTRUCT(BlueprintType)
 struct voice_user_talking_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_user_talking_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	class discord_voice_client* voice_client = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_user_talking_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_user_talking_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int talking_flags = 0;
 
 };
@@ -1078,10 +1078,10 @@ USTRUCT(BlueprintType)
 struct voice_ready_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_ready_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	discord_voice_client* voice_client = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_ready_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString voice_channel_id = {};
 
 };
@@ -1091,22 +1091,22 @@ USTRUCT(BlueprintType)
 struct voice_receive_t : public event_dispatch_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_receive_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	friend class discord_voice_client;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_receive_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	discord_voice_client* voice_client = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_receive_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	int* audio = nullptr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_receive_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	size_t audio_size = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_receive_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	std::basic_string<int> audio_data = {};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voice_receive_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Events")
 	FString user_id = {};
 
 };

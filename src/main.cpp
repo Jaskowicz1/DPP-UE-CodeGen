@@ -38,10 +38,10 @@ int main() {
 		}
 
 		/* This is just temp, I want to only do webhook as a test. */
-		/*if (file_name != "dispatcher.h") {
+		if (file_name != "dispatcher.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
-		}*/
+		}
 
 		std::cout << "Generating code from: " << file_name << "\n";
 
@@ -235,8 +235,9 @@ int main() {
 							}
 
 							std::string temp_scope = scope_name;
+							std::cout << temp_scope << "\n";
 
-							if(temp_scope.find("_t ") != std::string::npos) {
+							if(temp_scope.find("_t") != std::string::npos && file_name == "dispatcher.h") {
 								temp_scope = "events";
 							}
 
