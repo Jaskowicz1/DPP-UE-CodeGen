@@ -38,24 +38,24 @@ USTRUCT(BlueprintType)
 struct stage_instance {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance")
 	FString guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance")
 	FString channel_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance")
 	FString topic;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance")
 	stage_privacy_level privacy_level;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance")
 	bool discoverable_disabled;
 
 };
 
 /** A group of stage instances */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|stage_instance")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Stage_instance")
 TMap<FString, stage_instance> stage_instance_map;
 

@@ -182,8 +182,12 @@ int main() {
 					std::string new_line = line;
 					new_line.erase(0,8); // Removes "typedef "
 
+					if(typedef_name.find("_map") != std::string::npos) {
+						/* Removes "_map" */
+						typedef_name.erase(typedef_name.length()-4,typedef_name.length());
+					}
 
-					typedef_name.erase(typedef_name.length()-4,typedef_name.length()); // Removes "_map"
+					typedef_name[0] = std::toupper(typedef_name[0]);
 
 					file_lines.emplace_back("UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + typedef_name + "\")");
 					file_lines.emplace_back(new_line);
@@ -212,8 +216,12 @@ int main() {
 								continue;
 							}
 
+							std::string temp_scope = scope_name;
+
+							temp_scope[0] = std::toupper(temp_scope[0]);
+
 							if(!temp_line.empty()) {
-								file_lines.emplace_back("	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + scope_name + "\")");
+								file_lines.emplace_back("	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + temp_scope + "\")");
 								// Line needs to have words replaced (like std::string to FString)
 								file_lines.emplace_back(line);
 								file_lines.emplace_back("");

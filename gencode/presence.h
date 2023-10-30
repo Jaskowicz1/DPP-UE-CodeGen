@@ -108,10 +108,10 @@ USTRUCT(BlueprintType)
 struct activity_button {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_button")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_button")
 	FString label;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_button")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_button")
 	FString url;
 
 };
@@ -123,16 +123,16 @@ USTRUCT(BlueprintType)
 struct activity_assets {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_assets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_assets")
 	FString large_image;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_assets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_assets")
 	FString large_text;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_assets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_assets")
 	FString small_image;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_assets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_assets")
 	FString small_text;
 
 };
@@ -144,13 +144,13 @@ USTRUCT(BlueprintType)
 struct activity_secrets {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_secrets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_secrets")
 	FString join;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_secrets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_secrets")
 	FString spectate;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_secrets")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_secrets")
 	FString match;
 
 };
@@ -162,13 +162,13 @@ USTRUCT(BlueprintType)
 struct activity_party {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_party")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_party")
 	FString id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_party")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_party")
 	int32_t current_size;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity_party")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity_party")
 	int32_t maximum_size;
 
 };
@@ -180,52 +180,52 @@ USTRUCT(BlueprintType)
 struct activity {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FString state;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FString details;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	activity_assets assets;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FString url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	TArray<activity_button> buttons;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	emoji emoji;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	activity_party party;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	activity_secrets secrets;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	activity_type type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FDateTime created_at;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FDateTime start;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FDateTime end;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	FString application_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	int flags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Activity")
 	bool is_instance;
 
 };
@@ -237,21 +237,21 @@ USTRUCT(BlueprintType)
 struct presence {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Presence")
 	FString	user_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Presence")
 	FString       guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Presence")
 	int		flags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Presence")
 	TArray<activity> activities;
 
 };
 
 /** A container of presences */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|presence")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Presence")
 TMap<FString, presence> presence_map;
 

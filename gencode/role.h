@@ -45,61 +45,61 @@ USTRUCT(BlueprintType)
 struct role {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	FString name{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	FString guild_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	int64 colour{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	int position{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	permission permissions{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	int flags{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	FString integration_id{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	FString bot_id{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	FString subscription_listing_id{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	FString unicode_emoji{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	utility::icon icon{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	{
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 		return lhs.position < rhs.position;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	{
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 		return lhs.position > rhs.position;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	{
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 		return this->position == other.position;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 	{
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 		return this->position != other.position;
 
 };
@@ -128,13 +128,13 @@ USTRUCT(BlueprintType)
 struct application_role_connection_metadata {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_role_connection_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Application_role_connection_metadata")
 	application_role_connection_metadata_type type; //!< Type of metadata value
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_role_connection_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Application_role_connection_metadata")
 	TMap<FString, FString> name_localizations; //!< Translations of the name
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_role_connection_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Application_role_connection_metadata")
 	TMap<FString, FString> description_localizations; //!< Translations of the description
 
 };
@@ -149,10 +149,10 @@ struct application_role_connection {
 };
 
 /** A group of roles */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|role")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Role")
 TMap<FString, role> role_map;
 
 /** A group of application_role_connection_metadata objects */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|application_role_connection_metadata_")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Application_role_connection_metadata_list")
 TArray<application_role_connection_metadata> application_role_connection_metadata_list;
 

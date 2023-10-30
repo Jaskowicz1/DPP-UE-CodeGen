@@ -46,25 +46,25 @@ USTRUCT(BlueprintType)
 struct entitlement {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	FString sku_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	FString application_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	FString owner_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	entitlement_type type = entitlement_type::APPLICATION_SUBSCRIPTION;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	FDateTime starts_at{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	FDateTime ends_at{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 	int flags{0};
 
 };
@@ -72,6 +72,6 @@ struct entitlement {
 /**
  * @brief Group of entitlements.
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|entitlement")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Entitlement")
 TMap<FString, entitlement> entitlement_map;
 

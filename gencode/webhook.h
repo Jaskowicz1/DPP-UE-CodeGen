@@ -38,40 +38,40 @@ USTRUCT(BlueprintType)
 struct webhook {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	int type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString channel_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	user user_obj;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString avatar;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString token;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString application_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	guild source_guild;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	channel	source_channel;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 	FString image_data;
 
 };
@@ -79,6 +79,6 @@ struct webhook {
 /**
  * @brief A group of webhooks
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|webhook")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Webhook")
 TMap<FString, webhook> webhook_map;
 

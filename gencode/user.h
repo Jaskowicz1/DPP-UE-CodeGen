@@ -58,25 +58,25 @@ USTRUCT(BlueprintType)
 struct user {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	FString username;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	FString global_name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	FString avatar;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	FString avatar_decoration;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	int64 flags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	int discriminator;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 	int refcount;
 
 };
@@ -90,10 +90,10 @@ USTRUCT(BlueprintType)
 struct user_identified {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user_identified")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User_identified")
 	FString		locale;		//!< Optional: the user's chosen language option identify
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user_identified")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User_identified")
 	bool			verified;	//!< Optional: whether the email on this account has been verified       email
 
 };
@@ -115,6 +115,6 @@ struct user_identified {
  * @param u user to be deserialized
  */
 /** A group of users */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|user")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|User")
 TMap<FString, user> user_map;
 

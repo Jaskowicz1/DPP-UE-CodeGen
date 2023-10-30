@@ -40,19 +40,19 @@ USTRUCT(BlueprintType)
 struct emoji {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Emoji")
 	FString name{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Emoji")
 	TArray<FString> roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Emoji")
 	FString user_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Emoji")
 	utility::image_data image_data;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Emoji")
 	int flags{0};
 
 };
@@ -60,6 +60,6 @@ struct emoji {
 /**
  * @brief Group of emojis
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|emoji")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Emoji")
 TMap<FString, emoji> emoji_map;
 

@@ -84,31 +84,31 @@ USTRUCT(BlueprintType)
 struct select_option {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 	FString label;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 	FString value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 	FString description;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 	bool is_default;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 	struct inner_select_emoji {
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 		FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 		FString id = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 		bool animated = false;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|select_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Select_option")
 	} emoji;
 
 };
@@ -129,73 +129,73 @@ USTRUCT(BlueprintType)
 struct component {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	component_type type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	TArray<component> components;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	FString label;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	component_style style;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	text_style_type text_style;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	FString custom_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	FString url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	FString placeholder;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	int32_t min_values;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	int32_t max_values;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	int32_t min_length;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	int32_t max_length;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	TArray<select_option> options;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	TArray<int> channel_types;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	TArray<component_default_value> default_values;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	bool disabled;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	bool required;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	TVariant<FString, int64_t, double> value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	struct inner_emoji {
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 		FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 		FString id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 		bool animated;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component")
 	} emoji;
 
 };
@@ -207,13 +207,13 @@ USTRUCT(BlueprintType)
 struct embed_footer {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_footer")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_footer")
 	FString text;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_footer")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_footer")
 	FString icon_url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_footer")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_footer")
 	FString proxy_url;
 
 };
@@ -225,16 +225,16 @@ USTRUCT(BlueprintType)
 struct embed_image {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_image")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_image")
 	FString url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_image")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_image")
 	FString proxy_url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_image")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_image")
 	FString height;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_image")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_image")
 	FString width;
 
 };
@@ -246,10 +246,10 @@ USTRUCT(BlueprintType)
 struct embed_provider {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_provider")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_provider")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_provider")
 	FString url;
 
 };
@@ -261,16 +261,16 @@ USTRUCT(BlueprintType)
 struct embed_author {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_author")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_author")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_author")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_author")
 	FString url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_author")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_author")
 	FString icon_url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_author")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_author")
 	FString proxy_icon_url;
 
 };
@@ -282,13 +282,13 @@ USTRUCT(BlueprintType)
 struct embed_field {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_field")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_field")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_field")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_field")
 	FString value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed_field")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed_field")
 	bool is_inline;
 
 };
@@ -300,43 +300,43 @@ USTRUCT(BlueprintType)
 struct embed {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	FString			title;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	FString			type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	FString			description;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	FString			url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	FDateTime				timestamp;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<int64>			color;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<embed_footer>	footer;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<embed_image>	image;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<embed_image>	thumbnail;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<embed_image>	video;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<embed_provider>	provider;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	std::optional<embed_author>	author;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|embed")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Embed")
 	TArray<embed_field>	fields;
 
 };
@@ -348,28 +348,28 @@ USTRUCT(BlueprintType)
 struct reaction {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	int64 count;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	int64 count_burst;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	int64 count_normal;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	FString emoji_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	FString emoji_name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	bool me;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	bool me_burst;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|reaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Reaction")
 	TArray<int64> burst_colors;
 
 };
@@ -389,46 +389,46 @@ USTRUCT(BlueprintType)
 struct attachment {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	int64 size;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString filename;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString description;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString proxy_url;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	int64 width;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	int64 height;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString content_type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	bool ephemeral;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	double duration_secs;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	FString waveform;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	int		flags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|attachment")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Attachment")
 	struct message* owner;
 
 };
@@ -460,43 +460,43 @@ USTRUCT(BlueprintType)
 struct sticker {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	pack_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	 description;	
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	 tags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	 asset;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	sticker_type	type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	sticker_format	format_type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	bool		available;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	user		sticker_user;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	int		sort_value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	filename;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 	FString	filecontent;
 
 };
@@ -508,22 +508,22 @@ USTRUCT(BlueprintType)
 struct sticker_pack {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 	TMap<FString, sticker> stickers;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 	FString	 name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 	FString	   sku_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 	FString	   cover_sticker_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 	FString	 description;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 	FString	   banner_asset_id;
 
 };
@@ -613,19 +613,19 @@ USTRUCT(BlueprintType)
 struct cache_policy_t {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|cache_policy_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Cache_policy_t")
 	cache_policy_setting_t user_policy = cp_aggressive;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|cache_policy_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Cache_policy_t")
 	cache_policy_setting_t emoji_policy = cp_aggressive;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|cache_policy_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Cache_policy_t")
 	cache_policy_setting_t role_policy = cp_aggressive;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|cache_policy_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Cache_policy_t")
 	cache_policy_setting_t channel_policy = cp_aggressive;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|cache_policy_t")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Cache_policy_t")
 	cache_policy_setting_t guild_policy = cp_aggressive;
 
 };
@@ -640,155 +640,155 @@ USTRUCT(BlueprintType)
 struct message {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FString	   channel_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FString	   guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	user		author;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	guild_member	member;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FString	content;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<component> components;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FDateTime		sent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FDateTime		edited;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<std::pair<user, guild_member>>	mentions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<FString> mention_roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<channel> mention_channels;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<attachment> attachments;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<embed> embeds;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<reaction> reactions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FString	nonce;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	FString	webhook_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<sticker> stickers;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<FString>	filename;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<FString>	filecontent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	TArray<FString>	filemimetype;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	struct message_ref {
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		FString message_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		FString channel_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		FString guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		bool fail_if_not_exists;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	} message_reference;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	struct message_interaction_struct{
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		FString id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		int type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		user usr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	} interaction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	struct allowed_ref {
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		bool parse_users;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		bool parse_everyone;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		bool parse_roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		bool replied_user;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		TArray<FString> users;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 		TArray<FString> roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	} allowed_mentions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	class cluster* owner;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	message_type type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	int		flags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	bool		pinned;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	bool		tts;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 	bool   		mention_everyone;
 
 };
 
 /** A group of messages */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|message")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Message")
 TMap<FString, message> message_map;
 
 /** A group of stickers */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker")
 TMap<FString, sticker> sticker_map;
 
 /** A group of sticker packs */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sticker_pack")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sticker_pack")
 TMap<FString, sticker_pack> sticker_pack_map;
 

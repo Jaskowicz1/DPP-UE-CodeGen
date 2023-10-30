@@ -120,16 +120,16 @@ USTRUCT(BlueprintType)
 struct thread_member {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_member")
 	FString thread_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_member")
 	FString user_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_member")
 	FDateTime joined;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_member")
 	int64 flags;
 
 };
@@ -141,13 +141,13 @@ USTRUCT(BlueprintType)
 struct forum_tag {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|forum_tag")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Forum_tag")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|forum_tag")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Forum_tag")
 	TVariant<FString, FString> emoji;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|forum_tag")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Forum_tag")
 	bool moderated;
 
 };
@@ -155,7 +155,7 @@ struct forum_tag {
 /**
  * @brief A group of thread member objects. the key is the user_id of the thread_member
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread_member")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread_member")
 TMap<FString, thread_member> thread_member_map;
 
 /**
@@ -167,70 +167,70 @@ USTRUCT(BlueprintType)
 struct channel {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString topic;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString rtc_region;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	TArray<FString> recipients;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	TArray<permission_overwrite> permission_overwrites;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	TArray<forum_tag> available_tags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	TVariant<FString, FString> default_reaction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString icon;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString owner_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString parent_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FString last_message_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	FDateTime last_pin_timestamp;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	permission permissions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	int position;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	int bitrate;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	int rate_limit_per_user;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	int default_thread_rate_limit_per_user;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	auto_archive_duration_t default_auto_archive_duration;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	default_forum_sort_order_t default_sort_order;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	int flags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 	int user_limit;
 
 };
@@ -242,25 +242,25 @@ USTRUCT(BlueprintType)
 struct thread {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	thread_member member;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	thread_metadata metadata;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	message msg;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	TArray<FString> applied_tags;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	int64 total_messages_sent;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	int message_count;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 	int member_count;
 
 };
@@ -280,13 +280,13 @@ struct thread {
 /**
  * @brief A group of channels
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|channel")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Channel")
 TMap<FString, channel> channel_map;
 
 /**
  * @brief A group of threads
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|thread")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Thread")
 TMap<FString, thread> thread_map;
 
 /**

@@ -28,36 +28,36 @@ USTRUCT(BlueprintType)
 struct dtemplate {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FString code;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FString description;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	int64 usage_count;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FString creator_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FDateTime created_at;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FDateTime updated_at;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	FString source_guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 	bool is_dirty;
 
 };
 
 /** A container of invites */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|dtemplate")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Dtemplate")
 TMap<FString, dtemplate> dtemplate_map;
 

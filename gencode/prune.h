@@ -28,13 +28,13 @@ USTRUCT(BlueprintType)
 struct prune {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|prune")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Prune")
 	int64 days = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|prune")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Prune")
 	TArray<FString> include_roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|prune")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Prune")
 	bool compute_prune_count;
 
 };

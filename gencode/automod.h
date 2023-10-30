@@ -68,22 +68,22 @@ USTRUCT(BlueprintType)
 struct automod_metadata {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_metadata")
 	TArray<FString> keywords;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_metadata")
 	TArray<FString> regex_patterns;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_metadata")
 	TArray<automod_preset_type> presets;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_metadata")
 	TArray<FString> allow_list;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_metadata")
 	int mention_total_limit;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_metadata")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_metadata")
 	bool mention_raid_protection_enabled;
 
 };
@@ -95,16 +95,16 @@ USTRUCT(BlueprintType)
 struct automod_action {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_action")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_action")
 	automod_action_type type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_action")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_action")
 	FString channel_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_action")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_action")
 	FString custom_message;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_action")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_action")
 	int64 duration_seconds;
 
 };
@@ -116,43 +116,43 @@ USTRUCT(BlueprintType)
 struct automod_rule {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	FString       	id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	FString       	guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	FString     	name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	FString       	creator_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	automod_event_type	event_type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	automod_trigger_type	trigger_type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	automod_metadata	trigger_metadata;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	TArray<automod_action> actions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	bool			enabled;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	TArray<FString>	exempt_roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 	TArray<FString>	exempt_channels;
 
 };
 
 /** A group of automod rules.
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|automod_rule")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Automod_rule")
 TMap<FString, automod_rule> automod_rule_map;
 

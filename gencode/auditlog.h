@@ -109,19 +109,19 @@ USTRUCT(BlueprintType)
 struct audit_entry {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Audit_entry")
 	FString			id;		//!< id of the entry
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Audit_entry")
 	FString			target_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Audit_entry")
 	TArray<audit_change>	changes;	//!< Optional: changes made to the target_id
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Audit_entry")
 	audit_type			type;		//!< type of action that occurred
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|audit_entry")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Audit_entry")
 	std::optional<audit_extra>	extra;	//!< Optional: additional info for certain action types
 
 };
@@ -133,7 +133,7 @@ USTRUCT(BlueprintType)
 struct auditlog {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|auditlog")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Auditlog")
 	TArray<audit_entry> entries;	//!< Audit log entries
 
 };

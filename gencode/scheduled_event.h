@@ -76,31 +76,31 @@ USTRUCT(BlueprintType)
 struct scheduled_event {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	FString		guild_id;		//!< the guild id which the scheduled event belongs to
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	FString		creator_id;		//!< Optional: the id of the user that created the scheduled event
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	FString		name;			//!< the name of the scheduled event
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	FDateTime			scheduled_start_time;	//!< the time the scheduled event will start
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	event_privacy_level	privacy_level;		//!< the privacy level of the scheduled event
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	event_status		status;			//!< the status of the scheduled event
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	event_entity_type	entity_type;		//!< the type of hosting entity associated with a scheduled event, e.g. voice channel or stage channel
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	user			creator;		//!< Optional: the creator of the scheduled event
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 	int64		user_count;		//!< Optional: the number of users subscribed to the scheduled event
 
 };
@@ -108,12 +108,12 @@ struct scheduled_event {
 /**
  * @brief A group of scheduled events
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|scheduled_event")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Scheduled_event")
 TMap<FString, scheduled_event> scheduled_event_map;
 
 /**
  * @brief A group of scheduled event members
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|event_member")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Event_member")
 TMap<FString, event_member> event_member_map;
 

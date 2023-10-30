@@ -57,7 +57,7 @@ enum command_option_type : uint8 {
  *
  * You can retrieve them with std::get().
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_v")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_value")
 TVariant<FString, int64_t, bool, FString, double> command_value;
 
 /**
@@ -71,10 +71,10 @@ USTRUCT(BlueprintType)
 struct command_option_choice {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option_choice")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option_choice")
 	command_value value;	//!< Option value
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option_choice")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option_choice")
 	TMap<FString, FString> name_localizations; //!< Localisations of command option name
 
 };
@@ -91,7 +91,7 @@ struct command_option_choice {
  * @brief A minimum or maximum value/length for co_number, co_integer and co_string types of a command_option.
  * The `int64_t` is for the integer range or string length that can be entered. The `double` is for the decimal range that can be entered
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option_r")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option_range")
 TVariant<int64_t, double> command_option_range;
 
 /**
@@ -106,37 +106,37 @@ USTRUCT(BlueprintType)
 struct command_option {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	bool required;                               //!< True if this is a mandatory parameter
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	bool focused;                                //!< True if the user is typing in this field, when sent via autocomplete
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	command_value value;                         //!< Set only by autocomplete went sent as part of an interaction
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	TArray<command_option_choice> choices;  //!< List of choices for multiple choice command
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	bool autocomplete;                           //!< True if this option supports auto completion
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	TArray<command_option> options;         //!< Sub-commands
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	TArray<channel_type> channel_types;     //!< Allowed channel types for channel FString id options
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	command_option_range min_value;              //!< Minimum value/length that can be entered, for co_number, co_integer and co_string types only
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	command_option_range max_value;              //!< Maximum value/length that can be entered, for co_number, co_integer and co_string types only
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	TMap<FString, FString> name_localizations; //!< Localisations of command name
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_option")
 	TMap<FString, FString> description_localizations; //!< Localisations of command description
 
 };
@@ -183,13 +183,13 @@ USTRUCT(BlueprintType)
 struct interaction_response {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction_response")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_response")
 	interaction_response_type type{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction_response")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_response")
 	message msg{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction_response")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_response")
 	TArray<command_option_choice> autocomplete_choices{};
 
 };
@@ -205,13 +205,13 @@ USTRUCT(BlueprintType)
 struct interaction_modal_response {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction_modal_response")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_modal_response")
 	FString custom_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction_modal_response")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_modal_response")
 	FString title;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction_modal_response")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction_modal_response")
 	TArray<TArray<component>> components;
 
 };
@@ -223,25 +223,25 @@ USTRUCT(BlueprintType)
 struct command_resolved {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, user> users;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, guild_member> members;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, permission> member_permissions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, role> roles;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, channel> channels;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, message> messages;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_resolved")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_resolved")
 	TMap<FString, attachment> attachments;
 
 };
@@ -255,19 +255,19 @@ USTRUCT(BlueprintType)
 struct command_data_option {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_data_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_data_option")
 	FString name;                          //!< the name of the parameter
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_data_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_data_option")
 	command_option_type type;                  //!< value of ApplicationCommandOptionType
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_data_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_data_option")
 	command_value value;                       //!< Optional: the value of the pair
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_data_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_data_option")
 	TArray<command_data_option> options;  //!< Optional: present if this option is a group or subcommand
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_data_option")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_data_option")
 	bool focused;                              //!< Optional: true if this option is the currently focused option for autocomplete
 
 };
@@ -311,19 +311,19 @@ USTRUCT(BlueprintType)
 struct command_interaction {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_interaction")
 	FString id;                              //!< the ID of the invoked command
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_interaction")
 	FString name;                          //!< the name of the invoked command
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_interaction")
 	TArray<command_data_option> options;  //!< Optional: the params + values from the user
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_interaction")
 	slashcommand_contextmenu_type type;        //!< type of the command interaction
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_interaction")
 	FString target_id;                  //!< Non-zero target ID for context menu actions. e.g. user id or message id whom clicked or tapped with the context menu https://discord.com/developers/docs/interactions/application-commands#user-commands
 
 };
@@ -343,13 +343,13 @@ USTRUCT(BlueprintType)
 struct component_interaction {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component_interaction")
 	int component_type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component_interaction")
 	FString custom_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|component_interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Component_interaction")
 	TArray<FString> values;
 
 };
@@ -389,58 +389,58 @@ USTRUCT(BlueprintType)
 struct interaction {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString application_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	int	type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	TVariant<command_interaction, component_interaction, autocomplete_interaction> data;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString guild_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString channel_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	channel channel;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString message_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	permission app_permissions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	message msg;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	guild_member member;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	user usr;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString token;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	int version;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	command_resolved resolved;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString locale;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	FString guild_locale;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	cache_policy_t cache_policy;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|interaction")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Interaction")
 	TArray<entitlement> entitlements;
 
 };
@@ -470,13 +470,13 @@ USTRUCT(BlueprintType)
 struct command_permission {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_permission")
 	FString id;                  //!< the ID of the role or user
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_permission")
 	command_permission_type type;  //!< the type of permission
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|command_permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Command_permission")
 	bool permission;               //!< true to allow, false, to disallow
 
 };
@@ -496,16 +496,16 @@ USTRUCT(BlueprintType)
 struct guild_command_permissions {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_command_permissions")
 	FString id;                                 //!< the id of the command
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_command_permissions")
 	FString application_id;                     //!< the id of the application the command belongs to
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_command_permissions")
 	FString guild_id;                           //!< the id of the guild
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_command_permissions")
 	TArray<command_permission> permissions;  //!< the permissions for the command in the guild
 
 };
@@ -526,43 +526,43 @@ USTRUCT(BlueprintType)
 struct slashcommand {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	FString application_id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	slashcommand_contextmenu_type type;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	FString description;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	TArray<command_option> options;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	bool default_permission;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	TArray<command_permission> permissions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	FString version;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	TMap<FString, FString> name_localizations;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	TMap<FString, FString> description_localizations;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	permission default_member_permissions;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	bool dm_permission;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 	bool nsfw;
 
 };
@@ -578,12 +578,12 @@ struct slashcommand {
 /**
  * @brief A group of application slash commands
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|slashcommand")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Slashcommand")
 TMap<FString, slashcommand> slashcommand_map;
 
 /**
  * @brief A group of guild command permissions
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|guild_command_permissions")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Guild_command_permissions")
 TMap<FString, guild_command_permissions> guild_command_permissions_map;
 

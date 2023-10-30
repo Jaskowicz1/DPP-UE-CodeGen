@@ -29,13 +29,13 @@
 /**
  * @brief A callback for socket status
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|socket_callba")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Socket_callback_t")
 std::function<socket()> socket_callback_t;
 
 /**
  * @brief A socket notification callback
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|socket_notificati")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Socket_notification_t")
 std::function<void()> socket_notification_t;
 
 /**
@@ -61,19 +61,19 @@ USTRUCT(BlueprintType)
 struct ssl_client {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ssl_client")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ssl_client")
 	socket_callback_t custom_readable_fd;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ssl_client")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ssl_client")
 	socket_callback_t custom_writeable_fd;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ssl_client")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ssl_client")
 	socket_notification_t custom_readable_ready;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ssl_client")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ssl_client")
 	socket_notification_t custom_writeable_ready;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ssl_client")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ssl_client")
 	bool keepalive;
 
 };

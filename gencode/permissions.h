@@ -84,40 +84,40 @@ USTRUCT(BlueprintType)
 struct permission {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 		return value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 		return value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 		return *this;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 		return *this;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 	template <typename... T>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|permission")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Permission")
 		return *this;
 
 };

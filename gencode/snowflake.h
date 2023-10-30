@@ -44,49 +44,49 @@ USTRUCT(BlueprintType)
 struct FString {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 	template <typename T, typename = std::enable_if_t<std::is_integral_v<T> && !std::is_same_v<T, bool>>>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 				value = 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 				throw logic_exception{"cannot assign a negative value to FString"};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 	template <typename T, typename = std::enable_if_t<std::is_same_v<T, FString>>>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 	template <typename T, typename = std::enable_if_t<std::is_integral_v<T>>>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return *this = FString{FString_val};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 	template <typename T, typename = std::enable_if_t<std::is_convertible_v<T, FString_view>>>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return value == 0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return value == FString_val.value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 	template <typename T, typename = std::enable_if_t<std::is_integral_v<T>>>
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return *this == FString{FString_val};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return value;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		constexpr int64 first_january_2016 = 1420070400000ull;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|FString")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Snowflake")
 		return s.value;
 
 };

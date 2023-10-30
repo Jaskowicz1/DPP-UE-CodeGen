@@ -29,10 +29,10 @@ USTRUCT(BlueprintType)
 struct ban {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ban")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ban")
 	FString reason;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ban")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ban")
 	FString user_id;
 
 };
@@ -40,6 +40,6 @@ struct ban {
 /**
  * A group of bans. The key is the user ID
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|ban")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Ban")
 TMap<FString, ban> ban_map;
 

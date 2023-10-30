@@ -44,24 +44,24 @@ USTRUCT(BlueprintType)
 struct voicestate {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voicestate")
 	class discord_client*	shard;             //!< Owning shard
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voicestate")
 	FString		guild_id;          //!< Optional: the guild id this voice state is for
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voicestate")
 	FString		user_id;           //!< the user id this voice state is for
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voicestate")
 	FString		session_id;        //!< the session id for this voice state
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voicestate")
 	FDateTime			request_to_speak;  //!< The time at which the user requested to speak, or 0
 
 };
 
 /** A container of voicestates */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voicestate")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voicestate")
 TMap<FString, voicestate> voicestate_map;
 

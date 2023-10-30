@@ -47,19 +47,19 @@ USTRUCT(BlueprintType)
 struct sku {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sku")
 	sku_type type = sku_type::SUBSCRIPTION;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sku")
 	FString application_id{0};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sku")
 	FString name{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sku")
 	FString slug{};
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sku")
 	int flags{0};
 
 };
@@ -67,6 +67,6 @@ struct sku {
 /**
  * @brief Group of SKUs.
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|sku")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Sku")
 TMap<FString, sku> sku_map;
 

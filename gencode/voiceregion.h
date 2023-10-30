@@ -39,13 +39,13 @@ USTRUCT(BlueprintType)
 struct voiceregion {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voiceregion")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voiceregion")
 	FString id;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voiceregion")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voiceregion")
 	FString name;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voiceregion")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voiceregion")
 	int flags;
 
 };
@@ -53,6 +53,6 @@ struct voiceregion {
 /**
  * @brief A group of voice regions
  */
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|voiceregion")
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Discord|Voiceregion")
 TMap<FString, voiceregion> voiceregion_map;
 
