@@ -38,10 +38,11 @@ int main() {
 		}
 
 		/* This is just temp, I want to only do webhook as a test. */
-		if (file_name != "dispatcher.h") {
+		/* if (file_name != "dispatcher.h") {
 			std::cout << "Ignoring file: " + file_name + "\n";
 			continue;
 		}
+		*/
 
 		std::cout << "Generating code from: " << file_name << "\n";
 
@@ -90,7 +91,6 @@ int main() {
 				}
 
 				if(temp_line.find("#endif") != std::string::npos && in_coro_func) {
-					std::cout << "ending coro." << "\n";
 					in_coro_func = false;
 					continue;
 				}
@@ -235,7 +235,6 @@ int main() {
 							}
 
 							std::string temp_scope = scope_name;
-							std::cout << temp_scope << "\n";
 
 							if(temp_scope.find("_t") != std::string::npos && file_name == "dispatcher.h") {
 								temp_scope = "events";
@@ -245,7 +244,6 @@ int main() {
 
 							if(!temp_line.empty()) {
 								file_lines.emplace_back("	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=\"Discord|" + temp_scope + "\")");
-								// Line needs to have words replaced (like std::string to FString)
 								file_lines.emplace_back(line);
 								file_lines.emplace_back("");
 							}
